@@ -20,14 +20,10 @@
   }
   body { font-family: var(--font); background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
   .page { max-width: 800px; margin: 0 auto; padding: 48px 40px; background: var(--white); min-height: 100vh; }
-
-  /* ── 헤더 ── */
   .report-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 24px; }
   .header-accent { width: 3px; height: 64px; background: var(--purple); border-radius: 2px; flex-shrink: 0; margin-top: 2px; }
   .header-period { font-size: 11px; color: var(--text-muted); letter-spacing: .06em; margin-bottom: 4px; }
   .header-title { font-size: 24px; font-weight: 700; color: var(--text); line-height: 1.25; }
-
-  /* ── 히어로 배너 ── */
   .hero-banner { background: linear-gradient(135deg, #534AB7 0%, #7F77DD 100%); border-radius: var(--radius-lg); padding: 24px 28px; margin-bottom: 16px; color: white; }
   .hero-label { font-size: 11px; font-weight: 700; letter-spacing: .08em; opacity: .75; margin-bottom: 8px; text-transform: uppercase; }
   .hero-title { font-size: 20px; font-weight: 700; line-height: 1.35; margin-bottom: 6px; }
@@ -36,8 +32,6 @@
   .hero-stat { flex: 1; min-width: 110px; padding-right: 12px; margin-bottom: 8px; }
   .hero-stat-val { font-size: 18px; font-weight: 700; }
   .hero-stat-lbl { font-size: 11px; opacity: .7; margin-top: 2px; }
-
-  /* ── 노티스 ── */
   .notice { border-radius: var(--radius-md); padding: 14px 18px; margin-bottom: 16px; }
   .notice.teal { background: var(--teal-light); border: 0.5px solid var(--teal); }
   .notice.subtle { background: var(--gray-light); border: 0.5px solid var(--line); }
@@ -47,12 +41,9 @@
   .notice-body { font-size: 13px; line-height: 1.7; }
   .notice.teal .notice-body { color: #0F6E56; }
   .notice.subtle .notice-body { color: var(--text-sec); }
-
   hr.divider { border: none; border-top: 0.5px solid var(--line); margin: 32px 0; }
   .sec-label { font-size: 10px; font-weight: 700; color: var(--text-muted); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 8px; }
   .sec-title { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 20px; line-height: 1.3; }
-
-  /* ── 메트릭 카드 ── */
   .metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
   .metric-card { background: var(--gray-light); border-radius: var(--radius-md); padding: 16px; }
   .metric-card.up { background: var(--teal-light); border: 0.5px solid var(--teal); }
@@ -65,8 +56,6 @@
   .compare-row .curr { font-weight: 700; padding: 1px 6px; border-radius: 4px; }
   .curr.up { background: var(--teal-light); color: #085041; }
   .curr.down { background: var(--coral-light); color: var(--coral); }
-
-  /* ── ibox ── */
   .ibox { border: 0.5px solid var(--line); border-radius: var(--radius-md); padding: 16px 18px; margin-bottom: 12px; background: var(--white); }
   .ibox.accent { background: var(--purple-light); border-color: var(--purple-dark); border-left: 3px solid var(--purple); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
   .ibox.success { background: var(--teal-light); border-color: var(--teal); border-left: 3px solid var(--teal); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
@@ -74,8 +63,6 @@
   .ibox-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 7px; }
   .ibox-body { font-size: 13px; color: var(--text-sec); line-height: 1.75; }
   .ibox-body strong { color: var(--text); font-weight: 700; }
-
-  /* ── 유형별 카드 ── */
   .type-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
   .type-card { border-radius: var(--radius-lg); padding: 16px; }
   .type-card.info { background: var(--teal-light); }
@@ -86,8 +73,6 @@
   .type-sub { font-size: 10px; font-weight: 400; opacity: .75; margin-left: 4px; }
   .type-row { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px; color: var(--text-sec); }
   .type-row span:last-child { font-weight: 700; color: var(--text); }
-
-  /* ── 바 차트 ── */
   .bar-section { margin-bottom: 16px; }
   .bar-group-title { font-size: 11px; color: var(--text-muted); margin-bottom: 10px; }
   .bar-wrap { margin-bottom: 8px; }
@@ -96,8 +81,6 @@
   .bar-label-row span:last-child { font-weight: 700; color: var(--text); }
   .bar-track { height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; }
   .bar-fill { height: 100%; border-radius: 3px; }
-
-  /* ── 순위 ── */
   .rank-item { display: flex; gap: 14px; padding: 16px 0; border-bottom: 0.5px solid var(--line); align-items: flex-start; }
   .rank-item:last-child { border-bottom: none; }
   .rank-num { font-size: 20px; font-weight: 700; min-width: 30px; padding-top: 1px; flex-shrink: 0; }
@@ -106,11 +89,8 @@
   .rank-stats { display: flex; flex-wrap: wrap; gap: 10px; }
   .rank-stat { font-size: 12px; color: var(--text-muted); }
   .rank-stat span { font-weight: 700; color: var(--text); }
-
   .badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-left: 6px; vertical-align: middle; }
   .badge-success { background: var(--teal-light); color: #085041; }
-
-  /* ── 리틀리 테이블 ── */
   .ll-compare { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 13px; }
   .ll-compare th { text-align: left; padding: 9px 10px; background: var(--gray-light); color: var(--text-muted); font-weight: 700; font-size: 11px; border-bottom: 0.5px solid var(--line); }
   .ll-compare td { padding: 10px 10px; border-bottom: 0.5px solid var(--line); color: var(--text-sec); }
@@ -118,8 +98,6 @@
   .ll-compare td.up { color: var(--teal); } .ll-compare td.dn { color: var(--coral); }
   .ll-compare tr.total td { background: var(--purple-light); font-weight: 700; }
   .ll-compare tr:last-child td { border-bottom: none; }
-
-  /* ── 5개월 추이 ── */
   .trend-row { display: grid; grid-template-columns: repeat(5,1fr); gap: 6px; margin-bottom: 16px; }
   .tcard { background: var(--gray-light); border-radius: var(--radius-md); padding: 12px 8px; text-align: center; }
   .tcard.now { background: var(--purple-light); border: 0.5px solid var(--purple); }
@@ -127,8 +105,6 @@
   .tcard-val { font-size: 13px; font-weight: 700; color: var(--text); }
   .tcard.now .tcard-val { color: var(--purple-dark); font-size: 15px; }
   .tcard-sub { font-size: 9px; color: var(--text-sec); margin-top: 2px; }
-
-  /* ── 광고 섹션 ── */
   .ad-placeholder { border: 1.5px dashed var(--purple); border-radius: var(--radius-lg); padding: 28px; margin-bottom: 12px; text-align: center; background: var(--purple-light); }
   .ad-placeholder-title { font-size: 14px; font-weight: 700; color: var(--purple-dark); margin-bottom: 8px; }
   .ad-placeholder-sub { font-size: 12px; color: var(--text-muted); }
@@ -142,61 +118,38 @@
   .ad-insight { background: var(--purple-light); border: 0.5px solid var(--purple); border-radius: var(--radius-md); padding: 16px 18px; margin-bottom: 10px; }
   .ad-insight-title { font-size: 12px; font-weight: 700; color: var(--purple-dark); margin-bottom: 8px; }
   .ad-insight-body { font-size: 13px; color: var(--text-sec); line-height: 1.75; }
-
-  /* ── 전략 ── */
   .strat-item { display: flex; gap: 14px; padding: 16px 0; border-bottom: 0.5px solid var(--line); align-items: flex-start; }
   .strat-item:last-child { border-bottom: none; }
   .strat-num { width: 26px; height: 26px; border-radius: 50%; background: var(--purple-light); color: var(--purple-dark); font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
   .strat-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 5px; }
   .strat-body { font-size: 13px; color: var(--text-sec); line-height: 1.7; }
   .strat-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-left: 6px; vertical-align: middle; background: var(--teal-light); color: #085041; }
-
   .report-footer { font-size: 12px; color: var(--text-muted); margin-top: 32px; padding-top: 16px; border-top: 0.5px solid var(--line); line-height: 1.7; }
 
-  /* ═══════════════════════════════
-     모바일 반응형 (480px 이하)
-  ═══════════════════════════════ */
   @media (max-width: 480px) {
     body { font-size: 14px; }
     .page { padding: 28px 20px; }
-
     .header-title { font-size: 20px; }
     .hero-banner { padding: 20px; }
     .hero-title { font-size: 17px; }
     .hero-sub { font-size: 12px; }
     .hero-stat { min-width: 46%; margin-bottom: 12px; }
     .hero-stat-val { font-size: 16px; }
-
     .sec-title { font-size: 17px; margin-bottom: 14px; }
-
-    /* 메트릭 카드: 3열 → 2열 */
     .metric-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
     .metric-value { font-size: 18px; }
-
-    /* 유형별 카드: 3열 → 1열 */
     .type-grid { grid-template-columns: 1fr; gap: 8px; }
-
-    /* 리틀리 추이: 5열 → 스크롤 */
     .trend-row { grid-template-columns: repeat(3, 1fr); gap: 6px; }
     .tcard-val { font-size: 12px; }
     .tcard.now .tcard-val { font-size: 13px; }
-
-    /* 리틀리 테이블: 스크롤 */
     .ll-compare { font-size: 12px; }
     .ll-compare th, .ll-compare td { padding: 8px 8px; }
-
-    /* 순위 */
     .rank-title { font-size: 13px; }
     .rank-stats { gap: 8px; }
     .rank-stat { font-size: 11px; }
-
-    /* 광고 테이블 */
     .ad-table-wrap { border-radius: var(--radius-md); border: 0.5px solid var(--line); }
-
-    /* 전략 */
     .strat-title { font-size: 13px; }
     .strat-body { font-size: 12px; }
-
     hr.divider { margin: 24px 0; }
   }
 </style>
@@ -265,7 +218,7 @@
   <div style="margin-bottom:16px;"><div style="font-size:11px;color:var(--text-muted);margin-bottom:10px;">리틀리 월간 총 클릭 5개월 추이</div>
   <div class="trend-row"><div class="tcard"><div class="tcard-period">4/22-5/11</div><div class="tcard-val">121건</div><div class="tcard-sub">도입 첫 달</div></div><div class="tcard"><div class="tcard-period">5/12-6/11</div><div class="tcard-val">316건</div><div class="tcard-sub">↑ 161%</div></div><div class="tcard"><div class="tcard-period">6/12-7/11</div><div class="tcard-val">548건</div><div class="tcard-sub">↑ 73%</div></div><div class="tcard"><div class="tcard-period">7/12-8/11</div><div class="tcard-val">1,723건</div><div class="tcard-sub">↑ 214%</div></div><div class="tcard now"><div class="tcard-period">8/12-9/11</div><div class="tcard-val">2,059건</div><div class="tcard-sub">↑ 20%</div></div></div></div>
   <table class="ll-compare"><tr><th>링크 항목</th><th>6/12-7/11</th><th>7/12-8/11</th><th>8/12-9/11</th><th>전월 대비</th></tr><tr><td>홈페이지 랜딩</td><td>336</td><td>686</td><td>883건</td><td class="up">+29%</td></tr><tr><td>네이버 예약</td><td>79</td><td>406</td><td>431건</td><td class="up">+6%</td></tr><tr><td>카카오 1:1 상담</td><td>52</td><td>374</td><td>426건</td><td class="up">+14%</td></tr><tr><td>이번달 Best 피드</td><td>58</td><td>61</td><td>164건</td><td class="up">+169%</td></tr><tr><td>네이버 위치</td><td>23</td><td>196</td><td>155건</td><td class="dn">-21%</td></tr><tr class="total"><td>합계</td><td>548</td><td>1,723</td><td>2,059건</td><td class="up">+20%</td></tr></table>
-  <div class="ibox accent"><div class="ibox-title">예약·상담을 통해 유의미한 전환 접점이 만들어지고 있습니다</div><div class="ibox-body">네이버 예약(431건)과 카카오 1:1 상담(426건)이 각각 전월 대비 성장을 유지했습니다. 리틀리 도입 초기(4/22-5/11) 예약+상담 합계 37건 대비 이번 달 <strong>857건으로 23배 성장</strong>했습니다. 5개월간 콘텐츠를 통해 유입된 팔로워들이 꾸준히 예약·상담으로 전환되는 구조가 자리잡히고 있습니다.</div></div>
+  <div class="ibox accent"><div class="ibox-title">예약·상담에 대한 관심 클릭이 지속적으로 늘어나고 있습니다</div><div class="ibox-body">네이버 예약(431건)과 카카오 1:1 상담(426건) 페이지로의 유입이 꾸준히 늘어나고 있습니다. 리틀리 도입 초기(4/22-5/11) 예약+상담 합계 37건 대비 이번 달 <strong>857건으로 23배 증가</strong>했습니다. 채널을 통해 유입된 팔로워들이 예약·상담 페이지에 꾸준히 유입되고 있으며, 브랜드에 대한 관심도가 높아지고 있는 흐름으로 읽힙니다. 이번 달 Best 피드 클릭이 +169% 급증한 점도 콘텐츠 품질에 대한 신뢰가 쌓이고 있다는 신호입니다.</div></div>
   <hr class="divider">
   <div class="sec-label">05 · 광고 영상 콘텐츠 성과 리포트</div>
   <div class="sec-title">Ep.4 헤리&amp;도원 · Ep.5 다람&amp;명조 부부 시리즈</div>
@@ -279,7 +232,7 @@
   <div>
     <div class="strat-item"><div class="strat-num">1</div><div><div class="strat-title">댓글 DM 전략 도입 — 팔로우·댓글 유도 <span class="strat-tag">NEW</span></div><div class="strat-body">이번 달 9/4 프로포즈링 콘텐츠가 공유 89건을 기록하며 예비 신혼부부들 사이에서 자발적으로 퍼지는 주제임을 확인했습니다. 이 같은 정보성 콘텐츠에 <strong>"댓글을 달면 DM으로 추가 정보 제공"</strong> 방식을 도입합니다. 댓글 수 증가 → 알고리즘 노출 확대 → 팔로우 유도로 이어지는 구조를 만들어, 팔로워 순증 둔화에 대응합니다.</div></div></div>
     <div class="strat-item"><div class="strat-num">2</div><div><div class="strat-title">정보성 콘텐츠 비중 유지 + 공유 유발 주제 집중</div><div class="strat-body">5개월 데이터가 일관되게 증명하듯 정보성 콘텐츠가 채널 성장의 핵심입니다. '샤워할 때 반지', '신혼여행 반지', '프로포즈링 vs 웨딩밴드' 처럼 <strong>예비 신혼부부가 실제로 궁금해하고 주변에 공유하고 싶은 주제</strong>를 우선 기획합니다.</div></div></div>
-    <div class="strat-item"><div class="strat-num">3</div><div><div class="strat-title">리틀리 예약·상담 흐름 유지</div><div class="strat-body">네이버 예약(431건)·카카오 상담(426건)이 안정적으로 높은 수준을 유지하고 있습니다. 콘텐츠 내 CTA와 바이오 링크 구조를 점검하고, 상담·예약으로 이어지는 콘텐츠 패턴을 계속 강화합니다.</div></div></div>
+    <div class="strat-item"><div class="strat-num">3</div><div><div class="strat-title">리틀리 예약·상담 유입 흐름 유지</div><div class="strat-body">네이버 예약(431건)·카카오 상담(426건) 페이지로의 유입이 안정적으로 높은 수준을 유지하고 있습니다. 콘텐츠 내 CTA와 바이오 링크 구조를 점검하고, 예약·상담 페이지 유입을 이어갈 수 있는 콘텐츠 패턴을 계속 강화합니다.</div></div></div>
     <div class="strat-item"><div class="strat-num">4</div><div><div class="strat-title">영상 콘텐츠 지속 발행</div><div class="strat-body">영상 5건 발행으로 알고리즘 노출 다각화를 유지했습니다. 제품소개 영상본이 존재하는 경우 캐러셀보다 영상을 우선 활용하며, 촬영 일정을 월 초반으로 확보해 안정적인 업로드 흐름을 만듭니다.</div></div></div>
   </div>
   <div class="report-footer">본 리포트는 2026년 9월 11일 기준으로 작성되었습니다. 콘텐츠 지표는 해당 날짜 기준 누적값이며, 9/9·9/10·9/11 최근 업로드 3건은 집계 중으로 다음 달 리포트에 반영됩니다. 광고 4건(Ep.4·Ep.5 시리즈) 상세 지표는 데이터 수신 후 05 섹션에 추가됩니다.</div>
