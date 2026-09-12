@@ -105,19 +105,6 @@
   .tcard-val { font-size: 13px; font-weight: 700; color: var(--text); }
   .tcard.now .tcard-val { color: var(--purple-dark); font-size: 15px; }
   .tcard-sub { font-size: 9px; color: var(--text-sec); margin-top: 2px; }
-  .ad-placeholder { border: 1.5px dashed var(--purple); border-radius: var(--radius-lg); padding: 28px; margin-bottom: 12px; text-align: center; background: var(--purple-light); }
-  .ad-placeholder-title { font-size: 14px; font-weight: 700; color: var(--purple-dark); margin-bottom: 8px; }
-  .ad-placeholder-sub { font-size: 12px; color: var(--text-muted); }
-  .ad-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 16px; }
-  .ad-table { width: 100%; border-collapse: collapse; font-size: 12px; min-width: 480px; }
-  .ad-table th { padding: 10px 12px; background: var(--gray-light); font-weight: 700; color: var(--text-muted); font-size: 11px; border-bottom: 0.5px solid var(--line); text-align: left; white-space: nowrap; }
-  .ad-table th:not(:first-child) { text-align: right; }
-  .ad-table td { padding: 10px 12px; border-bottom: 0.5px solid var(--line); color: var(--text-sec); white-space: nowrap; }
-  .ad-table td:not(:first-child) { text-align: right; font-weight: 700; color: var(--text); }
-  .ad-table tr:last-child td { border-bottom: none; }
-  .ad-insight { background: var(--purple-light); border: 0.5px solid var(--purple); border-radius: var(--radius-md); padding: 16px 18px; margin-bottom: 10px; }
-  .ad-insight-title { font-size: 12px; font-weight: 700; color: var(--purple-dark); margin-bottom: 8px; }
-  .ad-insight-body { font-size: 13px; color: var(--text-sec); line-height: 1.75; }
   .strat-item { display: flex; gap: 14px; padding: 16px 0; border-bottom: 0.5px solid var(--line); align-items: flex-start; }
   .strat-item:last-child { border-bottom: none; }
   .strat-num { width: 26px; height: 26px; border-radius: 50%; background: var(--purple-light); color: var(--purple-dark); font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
@@ -147,7 +134,6 @@
     .rank-title { font-size: 13px; }
     .rank-stats { gap: 8px; }
     .rank-stat { font-size: 11px; }
-    .ad-table-wrap { border-radius: var(--radius-md); border: 0.5px solid var(--line); }
     .strat-title { font-size: 13px; }
     .strat-body { font-size: 12px; }
     hr.divider { margin: 24px 0; }
@@ -180,38 +166,43 @@
   <div class="metric-grid">
     <div class="metric-card up"><div class="metric-label">도달 계정 수</div><div class="metric-value">132,000명</div><div class="metric-delta delta-up">↑ 24.8% vs 전월</div><div class="compare-row"><span class="prev">전월 105,748명</span><span class="curr up">+26,252</span></div></div>
     <div class="metric-card up"><div class="metric-label">도달률</div><div class="metric-value">61%</div><div class="metric-delta delta-up">전월 38% → +23%p</div><div class="compare-row"><span class="prev">전월 38%</span><span class="curr up">급반등</span></div></div>
-    <div class="metric-card"><div class="metric-label">노출 수</div><div class="metric-value">218,064</div><div class="metric-delta delta-down">↓ 21.6% vs 전월</div><div class="compare-row"><span class="prev">전월 278,090</span><span class="curr down">광고 감소 영향</span></div></div>
+    <div class="metric-card"><div class="metric-label">노출 수</div><div class="metric-value">218,064</div><div class="metric-delta delta-down">↓ 21.6% vs 전월</div><div class="compare-row"><span class="prev">전월 278,090</span><span class="curr down">전월 광고 감소 영향</span></div></div>
     <div class="metric-card"><div class="metric-label">프로필 방문 수</div><div class="metric-value">11,766건</div><div class="metric-delta delta-down">↓ 5.8% vs 전월</div><div class="compare-row"><span class="prev">전월 12,491건</span><span class="curr down">소폭 감소</span></div></div>
     <div class="metric-card"><div class="metric-label">팔로워 수</div><div class="metric-value">12,215명</div><div class="metric-delta delta-up">+6명 순증</div><div class="compare-row"><span class="prev">전월 +78명</span><span class="curr down">순증 둔화</span></div></div>
     <div class="metric-card"><div class="metric-label">인터랙션 합계</div><div class="metric-value">1,724</div><div class="metric-delta delta-down">↓ 10.2% vs 전월</div><div class="compare-row"><span class="prev">전월 1,920</span><span class="curr down">-196</span></div></div>
   </div>
-  <div class="ibox success"><div class="ibox-title">도달 계정 수 · 도달률 동반 상승 — 오가닉 확산력 회복</div><div class="ibox-body">지난달 광고 2건 종료 이후에도 도달 계정 수가 105,748명 → 132,000명으로 <strong>24.8% 증가</strong>했습니다. 도달률도 38% → 61%로 회복되며, 광고 없이 알고리즘 오가닉 확산만으로 더 넓은 범위에 도달하고 있음을 확인했습니다. 이는 5개월간 쌓아온 정보성 콘텐츠 자산이 채널 알고리즘 신뢰도를 높인 결과로 해석됩니다.</div></div>
+  <div class="ibox success"><div class="ibox-title">도달 계정 수 · 도달률 동반 상승 — 오가닉 확산력 회복</div><div class="ibox-body">전월 광고 집행 종료 이후에도 도달 계정 수가 105,748명 → 132,000명으로 <strong>24.8% 증가</strong>했습니다. 도달률도 38% → 61%로 회복되며, 오가닉 확산만으로 더 넓은 범위에 도달하고 있음을 확인했습니다. 5개월간 쌓아온 정보성 콘텐츠 자산이 채널 알고리즘 신뢰도를 높인 결과로 해석됩니다.</div></div>
   <div class="ibox muted"><div class="ibox-title">팔로워 순증 둔화에 대하여</div><div class="ibox-body">이번 달 팔로워 순증이 +6명으로 전월(+78명) 대비 크게 줄었습니다. 전월 광고 집행으로 신규 유입이 집중된 이후 자연스러운 조정 구간으로 보이며, 도달과 리틀리 클릭이 함께 성장하고 있는 점을 감안하면 채널 전반의 건강도는 유지되고 있습니다. 다음 달 댓글 DM 전략을 통한 팔로우 유도로 대응할 예정입니다.</div></div>
   <hr class="divider">
   <div class="sec-label">02 · 콘텐츠 유형별 비교</div>
   <div class="sec-title">정보성 / 전환형 / 브랜드형 퍼포먼스</div>
-  <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">※ 광고 4건 제외 · 9/9, 9/10, 9/11 최근 업로드 3건 집계 중 제외 · 총 12건 기준</div>
-  <div class="notice subtle" style="margin-bottom:16px;"><div class="notice-title">광고 4건 별도 기재</div><div class="notice-body">8/18 Ep.4 헤리&amp;도원 부부_01 · 8/20 Ep.4 헤리&amp;도원 부부_02 · 9/8 Ep.5 다람&amp;명조 부부_01 · 9/10 Ep.5 다람&amp;명조 부부_02는 별도 의뢰 건으로 아래 집계에서 제외했습니다.</div></div>
+  <div style="font-size:11px;color:var(--text-muted);margin-bottom:16px;">※ 9/9, 9/11 최근 업로드 2건 집계 중 제외 · 총 17건 기준 (영상 콘텐츠 4건 전환형 포함)</div>
+
   <div class="type-grid">
     <div class="type-card info"><div class="type-name info">정보성 <span class="type-sub">압도적 1위 · 6건</span></div><div class="type-row"><span>평균 도달</span><span>2,196</span></div><div class="type-row"><span>평균 조회</span><span>3,870</span></div><div class="type-row"><span>평균 저장</span><span>30.3</span></div><div class="type-row"><span>평균 공유</span><span>26.7</span></div><div class="type-row"><span>평균 좋아요</span><span>20.7</span></div></div>
-    <div class="type-card conv"><div class="type-name conv">전환형 <span class="type-sub">2건</span></div><div class="type-row"><span>평균 도달</span><span>1,199</span></div><div class="type-row"><span>평균 조회</span><span>2,735</span></div><div class="type-row"><span>평균 저장</span><span>14.5</span></div><div class="type-row"><span>평균 공유</span><span>17.5</span></div><div class="type-row"><span>평균 좋아요</span><span>12.0</span></div></div>
-    <div class="type-card brand"><div class="type-name brand">브랜드형 <span class="type-sub">4건</span></div><div class="type-row"><span>평균 도달</span><span>1,088</span></div><div class="type-row"><span>평균 조회</span><span>2,178</span></div><div class="type-row"><span>평균 저장</span><span>14.8</span></div><div class="type-row"><span>평균 공유</span><span>16.2</span></div><div class="type-row"><span>평균 좋아요</span><span>14.0</span></div></div>
+    <div class="type-card conv"><div class="type-name conv">전환형 <span class="type-sub">영상 4건 포함 · 6건</span></div><div class="type-row"><span>평균 도달</span><span>1,044</span></div><div class="type-row"><span>평균 조회</span><span>1,930</span></div><div class="type-row"><span>평균 저장</span><span>7.2</span></div><div class="type-row"><span>평균 공유</span><span>9.0</span></div><div class="type-row"><span>평균 좋아요</span><span>9.7</span></div></div>
+    <div class="type-card brand"><div class="type-name brand">브랜드형 <span class="type-sub">5건</span></div><div class="type-row"><span>평균 도달</span><span>1,088</span></div><div class="type-row"><span>평균 조회</span><span>2,178</span></div><div class="type-row"><span>평균 저장</span><span>14.8</span></div><div class="type-row"><span>평균 공유</span><span>16.2</span></div><div class="type-row"><span>평균 좋아요</span><span>14.0</span></div></div>
   </div>
-  <div class="ibox"><div class="ibox-title">유형별 결론</div><div class="ibox-body">5개월 연속 동일한 패턴이 반복되고 있습니다. <strong>정보성 콘텐츠가 도달·저장·공유 모든 면에서 타 유형을 압도</strong>합니다. 특히 이번 달 평균 저장(30.3건)과 공유(26.7건)가 전월 대비 크게 높아졌습니다. 9/4 프로포즈링 콘텐츠의 공유 89건은 단일 게시물 역대 최고 수치로, 예비 신혼부부 사이에서 유기적으로 공유되는 콘텐츠 주제임을 입증했습니다.</div></div>
+
+  <div class="ibox"><div class="ibox-title">유형별 결론</div><div class="ibox-body">이번 달도 <strong>정보성 콘텐츠가 도달·저장·공유 모든 면에서 타 유형을 압도</strong>했습니다. 평균 저장(30.3건)과 공유(26.7건)는 5개월 중 가장 높은 수치로, 9/4 프로포즈링 콘텐츠의 공유 89건이 크게 기여했습니다. 전환형은 영상 콘텐츠 4건이 포함되면서 평균 수치가 조정됐으며, 영상 포맷 특성상 저장·공유보다 도달·조회 중심으로 소비되는 경향이 확인됩니다.</div></div>
+
   <div style="margin-top:16px;">
-    <div class="bar-section"><div class="bar-group-title">저장 합계</div><div class="bar-wrap"><div class="bar-label-row"><span>정보성 (6건)</span><span>182</span></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#1D9E75;"></div></div></div><div class="bar-wrap"><div class="bar-label-row"><span>브랜드형 (4건)</span><span>74</span></div><div class="bar-track"><div class="bar-fill" style="width:40.7%;background:#D85A30;"></div></div></div><div class="bar-wrap"><div class="bar-label-row"><span>전환형 (2건)</span><span>29</span></div><div class="bar-track"><div class="bar-fill" style="width:15.9%;background:#7F77DD;"></div></div></div></div>
-    <div class="bar-section"><div class="bar-group-title">공유 합계</div><div class="bar-wrap"><div class="bar-label-row"><span>정보성 (6건)</span><span>160</span></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#1D9E75;"></div></div></div><div class="bar-wrap"><div class="bar-label-row"><span>브랜드형 (4건)</span><span>81</span></div><div class="bar-track"><div class="bar-fill" style="width:50.6%;background:#D85A30;"></div></div></div><div class="bar-wrap"><div class="bar-label-row"><span>전환형 (2건)</span><span>35</span></div><div class="bar-track"><div class="bar-fill" style="width:21.9%;background:#7F77DD;"></div></div></div></div>
-    <div class="bar-section"><div class="bar-group-title">좋아요 합계</div><div class="bar-wrap"><div class="bar-label-row"><span>정보성 (6건)</span><span>124</span></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#1D9E75;"></div></div></div><div class="bar-wrap"><div class="bar-label-row"><span>브랜드형 (4건)</span><span>70</span></div><div class="bar-track"><div class="bar-fill" style="width:56.5%;background:#D85A30;"></div></div></div><div class="bar-wrap"><div class="bar-label-row"><span>전환형 (2건)</span><span>24</span></div><div class="bar-track"><div class="bar-fill" style="width:19.4%;background:#7F77DD;"></div></div></div></div>
+    <div class="bar-section"><div class="bar-group-title">저장 합계</div><div class="bar-wrap"><div class="bar-label-row"><span>정보성 (6건)</span><span>182</span></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#1D9E75;"></div></div></div><div class="bar-wrap"><div class="bar-label-row"><span>브랜드형 (5건)</span><span>74</span></div><div class="bar-track"><div class="bar-fill" style="width:40.7%;background:#D85A30;"></div></div></div><div class="bar-wrap"><div class="bar-label-row"><span>전환형 (6건)</span><span>43</span></div><div class="bar-track"><div class="bar-fill" style="width:23.6%;background:#7F77DD;"></div></div></div></div>
+    <div class="bar-section"><div class="bar-group-title">공유 합계</div><div class="bar-wrap"><div class="bar-label-row"><span>정보성 (6건)</span><span>160</span></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#1D9E75;"></div></div></div><div class="bar-wrap"><div class="bar-label-row"><span>브랜드형 (5건)</span><span>81</span></div><div class="bar-track"><div class="bar-fill" style="width:50.6%;background:#D85A30;"></div></div></div><div class="bar-wrap"><div class="bar-label-row"><span>전환형 (6건)</span><span>54</span></div><div class="bar-track"><div class="bar-fill" style="width:33.8%;background:#7F77DD;"></div></div></div></div>
+    <div class="bar-section"><div class="bar-group-title">좋아요 합계</div><div class="bar-wrap"><div class="bar-label-row"><span>정보성 (6건)</span><span>124</span></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#1D9E75;"></div></div></div><div class="bar-wrap"><div class="bar-label-row"><span>브랜드형 (5건)</span><span>70</span></div><div class="bar-track"><div class="bar-fill" style="width:56.5%;background:#D85A30;"></div></div></div><div class="bar-wrap"><div class="bar-label-row"><span>전환형 (6건)</span><span>58</span></div><div class="bar-track"><div class="bar-fill" style="width:46.8%;background:#7F77DD;"></div></div></div></div>
   </div>
+
   <hr class="divider">
   <div class="sec-label">03 · 콘텐츠 성과 순위</div>
-  <div class="sec-title">이번 달 베스트 5 (도달 기준 · 광고 제외)</div>
-  <div class="notice teal" style="margin-bottom:16px;"><div class="notice-title">베스트 5가 모두 정보성 콘텐츠입니다</div><div class="notice-body">이번 달 도달 상위 5건이 전부 정보성 콘텐츠로 채워졌습니다. 5개월간의 데이터가 일관되게 보여주는 방향입니다.</div></div>
+  <div class="sec-title">이번 달 베스트 5 (도달 기준 · 전체 17건)</div>
+  <div class="notice teal" style="margin-bottom:16px;"><div class="notice-title">베스트 5가 모두 정보성 콘텐츠입니다</div><div class="notice-body">영상 콘텐츠 4건을 포함한 전체 순위에서도 도달 상위 5건이 모두 정보성 콘텐츠로 채워졌습니다. 5개월간의 데이터가 일관되게 보여주는 방향입니다.</div></div>
+
   <div class="rank-item"><div class="rank-num" style="color:#BA7517;">1</div><div><div class="rank-title">샤워할 때 반지 빼야 할까요?</div><div class="rank-meta">8/17 · 정보성 · 캐러셀</div><div class="rank-stats"><div class="rank-stat">도달 <span>3,526</span></div><div class="rank-stat">조회 <span>5,889</span></div><div class="rank-stat">저장 <span>20</span></div><div class="rank-stat">공유 <span>12</span></div><div class="rank-stat">좋아요 <span>23</span></div></div></div></div>
   <div class="rank-item"><div class="rank-num" style="color:#888780;">2</div><div><div class="rank-title">신혼여행 한 번에 결혼반지가 헌 반지?!</div><div class="rank-meta">9/7 · 정보성 · 캐러셀</div><div class="rank-stats"><div class="rank-stat">도달 <span>3,075</span></div><div class="rank-stat">조회 <span>5,151</span></div><div class="rank-stat">저장 <span>38</span></div><div class="rank-stat">공유 <span>23</span></div><div class="rank-stat">좋아요 <span>23</span></div></div></div></div>
   <div class="rank-item"><div class="rank-num" style="color:#854F0B;">3</div><div><div class="rank-title">프로포즈링과 웨딩밴드 어떤점이 다른 걸까요? <span class="badge badge-success">공유 89건</span></div><div class="rank-meta">9/4 · 정보성 · 캐러셀</div><div class="rank-stats"><div class="rank-stat">도달 <span>2,136</span></div><div class="rank-stat">조회 <span>3,683</span></div><div class="rank-stat">저장 <span>81</span></div><div class="rank-stat">공유 <span>89</span></div><div class="rank-stat">좋아요 <span>41</span></div></div></div></div>
   <div class="rank-item"><div class="rank-num" style="color:#5F5E5A;">4</div><div><div class="rank-title">어디에 끼느냐에 따라 의미가 달라진다고?</div><div class="rank-meta">8/26 · 정보성 · 캐러셀</div><div class="rank-stats"><div class="rank-stat">도달 <span>1,779</span></div><div class="rank-stat">조회 <span>3,306</span></div><div class="rank-stat">저장 <span>17</span></div><div class="rank-stat">공유 <span>12</span></div><div class="rank-stat">좋아요 <span>18</span></div></div></div></div>
   <div class="rank-item"><div class="rank-num" style="color:#5F5E5A;">5</div><div><div class="rank-title">레이어드 반지, 아무거나 같이 껴도 될까요?</div><div class="rank-meta">8/21 · 정보성 · 캐러셀</div><div class="rank-stats"><div class="rank-stat">도달 <span>1,476</span></div><div class="rank-stat">조회 <span>2,803</span></div><div class="rank-stat">저장 <span>11</span></div><div class="rank-stat">공유 <span>10</span></div><div class="rank-stat">좋아요 <span>8</span></div></div></div></div>
+
   <hr class="divider">
   <div class="sec-label">04 · 리틀리 유입 분석</div>
   <div class="sec-title">5개월 연속 성장 — 총 클릭 2,059건</div>
@@ -219,15 +210,9 @@
   <div class="trend-row"><div class="tcard"><div class="tcard-period">4/22-5/11</div><div class="tcard-val">121건</div><div class="tcard-sub">도입 첫 달</div></div><div class="tcard"><div class="tcard-period">5/12-6/11</div><div class="tcard-val">316건</div><div class="tcard-sub">↑ 161%</div></div><div class="tcard"><div class="tcard-period">6/12-7/11</div><div class="tcard-val">548건</div><div class="tcard-sub">↑ 73%</div></div><div class="tcard"><div class="tcard-period">7/12-8/11</div><div class="tcard-val">1,723건</div><div class="tcard-sub">↑ 214%</div></div><div class="tcard now"><div class="tcard-period">8/12-9/11</div><div class="tcard-val">2,059건</div><div class="tcard-sub">↑ 20%</div></div></div></div>
   <table class="ll-compare"><tr><th>링크 항목</th><th>6/12-7/11</th><th>7/12-8/11</th><th>8/12-9/11</th><th>전월 대비</th></tr><tr><td>홈페이지 랜딩</td><td>336</td><td>686</td><td>883건</td><td class="up">+29%</td></tr><tr><td>네이버 예약</td><td>79</td><td>406</td><td>431건</td><td class="up">+6%</td></tr><tr><td>카카오 1:1 상담</td><td>52</td><td>374</td><td>426건</td><td class="up">+14%</td></tr><tr><td>이번달 Best 피드</td><td>58</td><td>61</td><td>164건</td><td class="up">+169%</td></tr><tr><td>네이버 위치</td><td>23</td><td>196</td><td>155건</td><td class="dn">-21%</td></tr><tr class="total"><td>합계</td><td>548</td><td>1,723</td><td>2,059건</td><td class="up">+20%</td></tr></table>
   <div class="ibox accent"><div class="ibox-title">예약·상담에 대한 관심 클릭이 지속적으로 늘어나고 있습니다</div><div class="ibox-body">네이버 예약(431건)과 카카오 1:1 상담(426건) 페이지로의 유입이 꾸준히 늘어나고 있습니다. 리틀리 도입 초기(4/22-5/11) 예약+상담 합계 37건 대비 이번 달 <strong>857건으로 23배 증가</strong>했습니다. 채널을 통해 유입된 팔로워들이 예약·상담 페이지에 꾸준히 유입되고 있으며, 브랜드에 대한 관심도가 높아지고 있는 흐름으로 읽힙니다. 이번 달 Best 피드 클릭이 +169% 급증한 점도 콘텐츠 품질에 대한 신뢰가 쌓이고 있다는 신호입니다.</div></div>
+
   <hr class="divider">
-  <div class="sec-label">05 · 광고 영상 콘텐츠 성과 리포트</div>
-  <div class="sec-title">Ep.4 헤리&amp;도원 · Ep.5 다람&amp;명조 부부 시리즈</div>
-  <div class="ad-placeholder"><div class="ad-placeholder-title">✏️ 광고 성과 데이터 입력 예정</div><div class="ad-placeholder-sub">Ep.4 · Ep.5 광고 집행 결과 수치를 추가로 전달해주시면 여기에 삽입합니다.</div></div>
-  <div class="ad-table-wrap"><table class="ad-table"><tr><th>항목</th><th>Ep.4 헤리&amp;도원 1편 (8/18)</th><th>Ep.4 헤리&amp;도원 2편 (8/20)</th><th>Ep.5 다람&amp;명조 1편 (9/8)</th><th>Ep.5 다람&amp;명조 2편 (9/10)</th></tr><tr><td>포맷</td><td>영상(광고)</td><td>영상(광고)</td><td>영상(광고)</td><td>영상(광고)</td></tr><tr><td>도달</td><td>1,279</td><td>987</td><td>1,170</td><td>430</td></tr><tr><td>조회</td><td>1,802</td><td>1,500</td><td>2,222</td><td>589</td></tr><tr><td>좋아요</td><td>7</td><td>7</td><td>15</td><td>5</td></tr><tr><td>공유</td><td>3</td><td>3</td><td>1</td><td>0</td></tr><tr><td>저장</td><td>4</td><td>4</td><td>9</td><td>4</td></tr><tr><td>프로필 방문</td><td>13</td><td>4</td><td>19</td><td>4</td></tr></table></div>
-  <div class="ad-insight"><div class="ad-insight-title">광고 효율 인사이트</div><div class="ad-insight-body">추가 광고 성과 데이터(CPC, 광고비, 프로필 방문 최종 수치 등)를 전달해주시면 이 부분에 인사이트를 작성합니다.</div></div>
-  <div class="ad-insight" style="margin-top:10px;"><div class="ad-insight-title">결론 및 제안</div><div class="ad-insight-body">추가 데이터 입력 후 작성됩니다.</div></div>
-  <hr class="divider">
-  <div class="sec-label">06 · 다음 달 운영 전략</div>
+  <div class="sec-label">05 · 다음 달 운영 전략</div>
   <div class="sec-title">9월 방향성</div>
   <div>
     <div class="strat-item"><div class="strat-num">1</div><div><div class="strat-title">댓글 DM 전략 도입 — 팔로우·댓글 유도 <span class="strat-tag">NEW</span></div><div class="strat-body">이번 달 9/4 프로포즈링 콘텐츠가 공유 89건을 기록하며 예비 신혼부부들 사이에서 자발적으로 퍼지는 주제임을 확인했습니다. 이 같은 정보성 콘텐츠에 <strong>"댓글을 달면 DM으로 추가 정보 제공"</strong> 방식을 도입합니다. 댓글 수 증가 → 알고리즘 노출 확대 → 팔로우 유도로 이어지는 구조를 만들어, 팔로워 순증 둔화에 대응합니다.</div></div></div>
@@ -235,7 +220,7 @@
     <div class="strat-item"><div class="strat-num">3</div><div><div class="strat-title">리틀리 예약·상담 유입 흐름 유지</div><div class="strat-body">네이버 예약(431건)·카카오 상담(426건) 페이지로의 유입이 안정적으로 높은 수준을 유지하고 있습니다. 콘텐츠 내 CTA와 바이오 링크 구조를 점검하며, 예약·상담 페이지에 대한 관심 클릭이 이어질 수 있도록 콘텐츠 방향을 계속 유지합니다.</div></div></div>
     <div class="strat-item"><div class="strat-num">4</div><div><div class="strat-title">영상 콘텐츠 적극 활용</div><div class="strat-body">이번 달 영상 5건이 알고리즘 노출 다각화에 긍정적인 영향을 줬습니다. 영상 콘텐츠가 제공될 경우 빠르게 활용하여 업로드하는 방향으로 운영하며, 영상이 포함될 때 더 높은 도달 성과를 기대할 수 있습니다.</div></div></div>
   </div>
-  <div class="report-footer">본 리포트는 2026년 9월 11일 기준으로 작성되었습니다. 콘텐츠 지표는 해당 날짜 기준 누적값이며, 9/9·9/10·9/11 최근 업로드 3건은 집계 중으로 다음 달 리포트에 반영됩니다. 광고 4건(Ep.4·Ep.5 시리즈) 상세 지표는 데이터 수신 후 05 섹션에 추가됩니다.</div>
+  <div class="report-footer">본 리포트는 2026년 9월 11일 기준으로 작성되었습니다. 콘텐츠 지표는 해당 날짜 기준 누적값이며, 9/9·9/11 최근 업로드 2건은 집계 중으로 다음 달 리포트에 반영됩니다.</div>
 </div>
 </body>
 </html>
