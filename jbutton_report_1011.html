@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>인스타그램 채널 운영 성과 보고 · 9월 12일 — 10월 11일</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --purple: #7F77DD; --purple-light: #EEEDFE; --purple-dark: #534AB7;
+    --teal: #1D9E75; --teal-light: #E1F5EE;
+    --coral: #D85A30; --coral-light: #FAECE7;
+    --amber: #BA7517; --amber-light: #FAEEDA;
+    --gray: #888780; --gray-light: #F4F4F2;
+    --line: #E0DED8; --text: #1A1A18; --text-sec: #5F5E5A; --text-muted: #888780;
+    --white: #FFFFFF; --bg: #F8F7F4;
+    --radius-sm: 6px; --radius-md: 10px; --radius-lg: 14px;
+    --font: 'Noto Sans KR', sans-serif;
+  }
+  body { font-family: var(--font); background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  .page { max-width: 800px; margin: 0 auto; padding: 48px 40px; background: var(--white); min-height: 100vh; }
+  .report-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 24px; }
+  .header-accent { width: 3px; height: 64px; background: var(--purple); border-radius: 2px; flex-shrink: 0; margin-top: 2px; }
+  .header-period { font-size: 11px; color: var(--text-muted); letter-spacing: .06em; margin-bottom: 4px; }
+  .header-title { font-size: 24px; font-weight: 700; color: var(--text); line-height: 1.25; }
+  .notice { border-radius: var(--radius-md); padding: 14px 18px; margin-bottom: 16px; }
+  .notice.teal { background: var(--teal-light); border: 0.5px solid var(--teal); }
+  .notice.amber { background: var(--amber-light); border: 0.5px solid var(--amber); }
+  .notice.subtle { background: var(--gray-light); border: 0.5px solid var(--line); }
+  .notice-title { font-size: 12px; font-weight: 700; margin-bottom: 5px; }
+  .notice.teal .notice-title { color: #085041; }
+  .notice.amber .notice-title { color: #633806; }
+  .notice.subtle .notice-title { color: var(--text-sec); }
+  .notice-body { font-size: 13px; line-height: 1.7; }
+  .notice.teal .notice-body { color: #0F6E56; }
+  .notice.amber .notice-body { color: #854F0B; }
+  .notice.subtle .notice-body { color: var(--text-sec); }
+  hr.divider { border: none; border-top: 0.5px solid var(--line); margin: 32px 0; }
+  .sec-label { font-size: 10px; font-weight: 700; color: var(--text-muted); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 8px; }
+  .sec-title { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 20px; line-height: 1.3; }
+  .metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+  .metric-card { background: var(--gray-light); border-radius: var(--radius-md); padding: 16px; }
+  .metric-card.up { background: var(--teal-light); border: 0.5px solid var(--teal); }
+  .metric-card.down { opacity: .82; }
+  .metric-label { font-size: 11px; color: var(--text-muted); margin-bottom: 6px; }
+  .metric-value { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 4px; line-height: 1.2; }
+  .metric-delta { font-size: 11px; }
+  .delta-up { color: var(--teal); } .delta-down { color: var(--coral); } .delta-neu { color: var(--text-sec); }
+  .compare-row { display: flex; gap: 6px; font-size: 11px; margin-top: 4px; flex-wrap: wrap; }
+  .compare-row .prev { background: rgba(0,0,0,.06); padding: 1px 6px; border-radius: 4px; color: var(--text-muted); }
+  .compare-row .curr { font-weight: 700; padding: 1px 6px; border-radius: 4px; }
+  .curr.up { background: var(--teal-light); color: #085041; }
+  .curr.down { background: var(--coral-light); color: var(--coral); }
+  .ibox { border: 0.5px solid var(--line); border-radius: var(--radius-md); padding: 16px 18px; margin-bottom: 12px; background: var(--white); }
+  .ibox.accent { background: var(--purple-light); border-color: var(--purple-dark); border-left: 3px solid var(--purple); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+  .ibox.success { background: var(--teal-light); border-color: var(--teal); border-left: 3px solid var(--teal); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+  .ibox.muted { background: var(--gray-light); border-color: var(--line); border-left: 3px solid var(--line); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+  .ibox.warn { background: var(--amber-light); border-color: var(--amber); border-left: 3px solid var(--amber); border-radius: 0 var(--radius-md) var(--radius-md) 0; }
+  .ibox-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 7px; }
+  .ibox-body { font-size: 13px; color: var(--text-sec); line-height: 1.75; }
+  .ibox-body strong { color: var(--text); font-weight: 700; }
+  .type-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+  .type-card { border-radius: var(--radius-lg); padding: 16px; }
+  .type-card.info { background: var(--teal-light); }
+  .type-card.conv { background: var(--purple-light); }
+  .type-card.brand { background: var(--coral-light); }
+  .type-name { font-size: 13px; font-weight: 700; margin-bottom: 12px; }
+  .type-name.info { color: #085041; } .type-name.conv { color: #3C3489; } .type-name.brand { color: #712B13; }
+  .type-sub { font-size: 10px; font-weight: 400; opacity: .75; margin-left: 4px; }
+  .type-row { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px; color: var(--text-sec); }
+  .type-row span:last-child { font-weight: 700; color: var(--text); }
+  .bar-section { margin-bottom: 16px; }
+  .bar-group-title { font-size: 11px; color: var(--text-muted); margin-bottom: 10px; }
+  .bar-wrap { margin-bottom: 8px; }
+  .bar-label-row { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px; }
+  .bar-label-row span:first-child { color: var(--text-sec); }
+  .bar-label-row span:last-child { font-weight: 700; color: var(--text); }
+  .bar-track { height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 3px; }
+  .rank-item { display: flex; gap: 14px; padding: 16px 0; border-bottom: 0.5px solid var(--line); align-items: flex-start; }
+  .rank-item:last-child { border-bottom: none; }
+  .rank-num { font-size: 20px; font-weight: 700; min-width: 30px; padding-top: 1px; flex-shrink: 0; }
+  .rank-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; line-height: 1.4; }
+  .rank-meta { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; }
+  .rank-stats { display: flex; flex-wrap: wrap; gap: 10px; }
+  .rank-stat { font-size: 12px; color: var(--text-muted); }
+  .rank-stat span { font-weight: 700; color: var(--text); }
+  .badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-left: 6px; vertical-align: middle; }
+  .badge-success { background: var(--teal-light); color: #085041; }
+  .ll-compare { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 13px; }
+  .ll-compare th { text-align: left; padding: 9px 10px; background: var(--gray-light); color: var(--text-muted); font-weight: 700; font-size: 11px; border-bottom: 0.5px solid var(--line); }
+  .ll-compare td { padding: 10px; border-bottom: 0.5px solid var(--line); color: var(--text-sec); }
+  .ll-compare td:not(:first-child) { text-align: right; font-weight: 700; color: var(--text); }
+  .ll-compare td.up { color: var(--teal); } .ll-compare td.dn { color: var(--coral); }
+  .ll-compare tr.total td { background: var(--gray-light); font-weight: 700; }
+  .ll-compare tr:last-child td { border-bottom: none; }
+  .trend-row { display: grid; grid-template-columns: repeat(5,1fr); gap: 6px; margin-bottom: 8px; }
+  .tcard { background: var(--gray-light); border-radius: var(--radius-md); padding: 12px 8px; text-align: center; }
+  .tcard.now { background: var(--purple-light); border: 0.5px solid var(--purple); }
+  .tcard-period { font-size: 9px; color: var(--text-muted); margin-bottom: 4px; }
+  .tcard-val { font-size: 13px; font-weight: 700; color: var(--text); }
+  .tcard.now .tcard-val { color: var(--purple-dark); font-size: 15px; }
+  .tcard-sub { font-size: 9px; color: var(--text-sec); margin-top: 2px; }
+  .strat-item { display: flex; gap: 14px; padding: 16px 0; border-bottom: 0.5px solid var(--line); align-items: flex-start; }
+  .strat-item:last-child { border-bottom: none; }
+  .strat-num { width: 26px; height: 26px; border-radius: 50%; background: var(--purple-light); color: var(--purple-dark); font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .strat-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 5px; }
+  .strat-body { font-size: 13px; color: var(--text-sec); line-height: 1.7; }
+  .strat-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-left: 6px; vertical-align: middle; background: var(--teal-light); color: #085041; }
+  .report-footer { font-size: 12px; color: var(--text-muted); margin-top: 32px; padding-top: 16px; border-top: 0.5px solid var(--line); line-height: 1.7; }
+  @media (max-width: 480px) {
+    body { font-size: 14px; } .page { padding: 28px 20px; }
+    .header-title { font-size: 20px; } .sec-title { font-size: 17px; margin-bottom: 14px; }
+    .metric-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; } .metric-value { font-size: 18px; }
+    .type-grid { grid-template-columns: 1fr; gap: 8px; }
+    .trend-row { grid-template-columns: repeat(3, 1fr); }
+    .ll-compare { font-size: 12px; } .ll-compare th, .ll-compare td { padding: 8px; }
+    .rank-title { font-size: 13px; } .strat-title { font-size: 13px; } .strat-body { font-size: 12px; }
+    hr.divider { margin: 24px 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="report-header">
+    <div class="header-accent"></div>
+    <div>
+      <div class="header-period">9월 12일 — 10월 11일 · 월간 리포트</div>
+      <div class="header-title">인스타그램 채널 운영 성과 보고</div>
+    </div>
+  </div>
+
+  <div class="notice amber">
+    <div class="notice-title">📌 인스타그램 지표 체계 변경 안내</div>
+    <div class="notice-body">이번 달부터 인스타그램 대시보드의 지표 명칭 및 집계 방식이 변경되었습니다. 채널 전체 조회수·도달 수치는 이전 기준과 달라 전월 단순 비교가 어렵습니다. 인스타그램 공식 안내에서도 일부 지표(조회한 사람)를 <strong>"추산치·개발 중"</strong>으로 명시하고 있습니다. 이번 달은 개별 게시물 성과를 중심으로 채널 현황을 평가합니다.</div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="sec-label">01 · 채널 전체 현황</div>
+  <div class="sec-title">이번 달 주요 지표</div>
+
+  <div class="metric-grid">
+    <div class="metric-card down">
+      <div class="metric-label">팔로워 수</div>
+      <div class="metric-value">12,153명</div>
+      <div class="metric-delta delta-down">-43명 순감 (-0.35%)</div>
+      <div class="compare-row"><span class="prev">전월 +6명</span><span class="curr down">순감 전환</span></div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">조회수 (구 노출)</div>
+      <div class="metric-value">99,455</div>
+      <div class="metric-delta delta-neu">지표 변경 — 전월 비교 불가</div>
+      <div class="compare-row"><span class="prev">전월 218,064</span></div>
+    </div>
+    <div class="metric-card up">
+      <div class="metric-label">인터랙션 합계</div>
+      <div class="metric-value">1,750</div>
+      <div class="metric-delta delta-up">↑ 1.5% vs 전월</div>
+      <div class="compare-row"><span class="prev">전월 1,724</span><span class="curr up">소폭 상승</span></div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">프로필 방문 수</div>
+      <div class="metric-value">3,100건</div>
+      <div class="metric-delta delta-down">↓ 73.7% vs 전월</div>
+      <div class="compare-row"><span class="prev">전월 11,766건</span></div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">외부 링크 클릭</div>
+      <div class="metric-value">310건</div>
+      <div class="metric-delta delta-down">↓ 35.8% vs 전월</div>
+      <div class="compare-row"><span class="prev">전월 483건</span></div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-label">게시물 업로드</div>
+      <div class="metric-value">14건</div>
+      <div class="metric-delta delta-neu">전월 동일</div>
+      <div class="compare-row"><span class="prev">영상 전월 5건</span><span class="curr down">이달 0건</span></div>
+    </div>
+  </div>
+
+  <div class="ibox warn">
+    <div class="ibox-title">채널 전체 도달 수치에 대하여</div>
+    <div class="ibox-body">이번 달 대시보드에 표시되는 채널 전체 조회수(99,455)와 도달 수치는 인스타그램 지표 개편의 영향을 받아 전월과 직접 비교하기 어렵습니다. 다만 개별 게시물 도달 합산(22,020명)은 지난달 수준과 유사하며, <strong>콘텐츠 자체의 퍼포먼스는 정상 범위를 유지하고 있습니다.</strong> 아래 콘텐츠 유형별 비교에서 실질 성과를 확인하세요.</div>
+  </div>
+
+  <div class="ibox muted">
+    <div class="ibox-title">팔로워 순감 -43명에 대하여</div>
+    <div class="ibox-body">이번 달 신규 팔로워 103명, 언팔 146명으로 순감 -43명을 기록했습니다. 신규 유입 감소는 영상 콘텐츠 부재와 히트 콘텐츠 1건을 제외한 전반적인 도달 수준이 낮았던 점이 영향을 준 것으로 보입니다. 팔로워 수 자체(12,153명)는 안정적으로 유지되고 있습니다.</div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="sec-label">02 · 콘텐츠 유형별 비교</div>
+  <div class="sec-title">정보성 / 전환형 / 브랜드형 퍼포먼스 (전체 14건)</div>
+
+  <div class="type-grid">
+    <div class="type-card info"><div class="type-name info">정보성 <span class="type-sub">압도적 1위 · 4건</span></div><div class="type-row"><span>평균 도달</span><span>3,422</span></div><div class="type-row"><span>평균 조회</span><span>5,730</span></div><div class="type-row"><span>평균 저장</span><span>58.5</span></div><div class="type-row"><span>평균 공유</span><span>50.5</span></div><div class="type-row"><span>평균 좋아요</span><span>22.5</span></div></div>
+    <div class="type-card conv"><div class="type-name conv">전환형 <span class="type-sub">2건</span></div><div class="type-row"><span>평균 도달</span><span>1,086</span></div><div class="type-row"><span>평균 조회</span><span>2,378</span></div><div class="type-row"><span>평균 저장</span><span>12.5</span></div><div class="type-row"><span>평균 공유</span><span>15.0</span></div><div class="type-row"><span>평균 좋아요</span><span>12.0</span></div></div>
+    <div class="type-card brand"><div class="type-name brand">브랜드형 <span class="type-sub">8건</span></div><div class="type-row"><span>평균 도달</span><span>770</span></div><div class="type-row"><span>평균 조회</span><span>1,608</span></div><div class="type-row"><span>평균 저장</span><span>8.9</span></div><div class="type-row"><span>평균 공유</span><span>14.0</span></div><div class="type-row"><span>평균 좋아요</span><span>10.5</span></div></div>
+  </div>
+
+  <div class="ibox"><div class="ibox-title">유형별 결론</div><div class="ibox-body">이번 달도 <strong>정보성 콘텐츠가 도달·저장·공유 모든 지표에서 타 유형을 압도</strong>했습니다. 특히 9/17 웨딩밴드 준비 콘텐츠가 도달 8,501명·저장 202건·공유 161건을 기록하며 이달 최고 성과를 냈습니다. 댓글 68건은 댓글 DM 전략 도입 이후 역대 최고 수치로, 팔로워 참여를 유도하는 방식이 효과적으로 작동하고 있음을 보여줍니다.</div></div>
+
+  <div style="margin-top:16px;">
+    <div class="bar-section"><div class="bar-group-title">저장 합계</div><div class="bar-wrap"><div class="bar-label-row"><span>정보성 (4건)</span><span>234</span></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#1D9E75;"></div></div></div><div class="bar-wrap"><div class="bar-label-row"><span>브랜드형 (8건)</span><span>71</span></div><div class="bar-track"><div class="bar-fill" style="width:30.3%;background:#D85A30;"></div></div></div><div class="bar-wrap"><div class="bar-label-row"><span>전환형 (2건)</span><span>25</span></div><div class="bar-track"><div class="bar-fill" style="width:10.7%;background:#7F77DD;"></div></div></div></div>
+    <div class="bar-section"><div class="bar-group-title">공유 합계</div><div class="bar-wrap"><div class="bar-label-row"><span>정보성 (4건)</span><span>202</span></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#1D9E75;"></div></div></div><div class="bar-wrap"><div class="bar-label-row"><span>브랜드형 (8건)</span><span>112</span></div><div class="bar-track"><div class="bar-fill" style="width:55.4%;background:#D85A30;"></div></div></div><div class="bar-wrap"><div class="bar-label-row"><span>전환형 (2건)</span><span>30</span></div><div class="bar-track"><div class="bar-fill" style="width:14.9%;background:#7F77DD;"></div></div></div></div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="sec-label">03 · 콘텐츠 성과 순위</div>
+  <div class="sec-title">이번 달 베스트 5 (도달 기준)</div>
+
+  <div class="rank-item"><div class="rank-num" style="color:#BA7517;">1</div><div><div class="rank-title">웨딩밴드 처음 준비한다면, 5가지는 꼭 알고가세요 <span class="badge badge-success">댓글 68건</span></div><div class="rank-meta">9/17 · 정보성 · 캐러셀</div><div class="rank-stats"><div class="rank-stat">도달 <span>8,501</span></div><div class="rank-stat">조회 <span>13,909</span></div><div class="rank-stat">저장 <span>202</span></div><div class="rank-stat">공유 <span>161</span></div><div class="rank-stat">좋아요 <span>48</span></div><div class="rank-stat">팔로우 <span>15</span></div></div></div></div>
+  <div class="rank-item"><div class="rank-num" style="color:#888780;">2</div><div><div class="rank-title">14k인데 왜 585라고 적혀 있을까요?</div><div class="rank-meta">9/21 · 정보성 · 캐러셀</div><div class="rank-stats"><div class="rank-stat">도달 <span>3,123</span></div><div class="rank-stat">조회 <span>5,055</span></div><div class="rank-stat">저장 <span>18</span></div><div class="rank-stat">공유 <span>16</span></div><div class="rank-stat">좋아요 <span>21</span></div></div></div></div>
+  <div class="rank-item"><div class="rank-num" style="color:#854F0B;">3</div><div><div class="rank-title">웨딩밴드 고르기까지 평균 10개의 반지를 껴봅니다</div><div class="rank-meta">9/30 · 정보성 · 캐러셀</div><div class="rank-stats"><div class="rank-stat">도달 <span>1,495</span></div><div class="rank-stat">조회 <span>2,751</span></div><div class="rank-stat">저장 <span>7</span></div><div class="rank-stat">공유 <span>11</span></div><div class="rank-stat">좋아요 <span>13</span></div></div></div></div>
+  <div class="rank-item"><div class="rank-num" style="color:#5F5E5A;">4</div><div><div class="rank-title">9월 베스트</div><div class="rank-meta">9/25 · 전환형 · 캐러셀</div><div class="rank-stats"><div class="rank-stat">도달 <span>1,299</span></div><div class="rank-stat">조회 <span>2,819</span></div><div class="rank-stat">저장 <span>21</span></div><div class="rank-stat">공유 <span>19</span></div><div class="rank-stat">좋아요 <span>17</span></div></div></div></div>
+  <div class="rank-item"><div class="rank-num" style="color:#5F5E5A;">5</div><div><div class="rank-title">반지소개 : 다솜</div><div class="rank-meta">9/19 · 브랜드형 · 캐러셀</div><div class="rank-stats"><div class="rank-stat">도달 <span>1,085</span></div><div class="rank-stat">조회 <span>2,416</span></div><div class="rank-stat">저장 <span>18</span></div><div class="rank-stat">공유 <span>16</span></div><div class="rank-stat">좋아요 <span>12</span></div></div></div></div>
+
+  <hr class="divider">
+
+  <div class="sec-label">04 · 리틀리 유입 분석</div>
+  <div class="sec-title">6개월 누적 추이 — 총 클릭 1,836건</div>
+
+  <div style="margin-bottom:16px;">
+    <div style="font-size:11px;color:var(--text-muted);margin-bottom:10px;">리틀리 월간 총 클릭 추이</div>
+    <div class="trend-row">
+      <div class="tcard"><div class="tcard-period">4/22-5/11</div><div class="tcard-val">121건</div><div class="tcard-sub">도입 첫 달</div></div>
+      <div class="tcard"><div class="tcard-period">5/12-6/11</div><div class="tcard-val">316건</div><div class="tcard-sub">↑ 161%</div></div>
+      <div class="tcard"><div class="tcard-period">6/12-7/11</div><div class="tcard-val">548건</div><div class="tcard-sub">↑ 73%</div></div>
+      <div class="tcard"><div class="tcard-period">7/12-8/11</div><div class="tcard-val">1,723건</div><div class="tcard-sub">↑ 214%</div></div>
+      <div class="tcard"><div class="tcard-period">8/12-9/11</div><div class="tcard-val">2,059건</div><div class="tcard-sub">↑ 20%</div></div>
+    </div>
+    <div class="tcard now" style="max-width:160px;margin-top:6px;"><div class="tcard-period">9/12-10/11</div><div class="tcard-val">1,836건</div><div class="tcard-sub">↓ 11%</div></div>
+  </div>
+
+  <table class="ll-compare">
+    <tr><th>링크 항목</th><th>7/12-8/11</th><th>8/12-9/11</th><th>9/12-10/11</th><th>전월 대비</th></tr>
+    <tr><td>홈페이지 랜딩</td><td>686</td><td>883</td><td>828건</td><td class="dn">-6%</td></tr>
+    <tr><td>네이버 예약</td><td>406</td><td>431</td><td>357건</td><td class="dn">-17%</td></tr>
+    <tr><td>카카오 1:1 상담</td><td>374</td><td>426</td><td>411건</td><td class="dn">-4%</td></tr>
+    <tr><td>이번달 Best 피드</td><td>61</td><td>164</td><td>98건</td><td class="dn">-40%</td></tr>
+    <tr><td>네이버 위치</td><td>196</td><td>155</td><td>142건</td><td class="dn">-8%</td></tr>
+    <tr class="total"><td>합계</td><td>1,723</td><td>2,059</td><td>1,836건</td><td class="dn">-11%</td></tr>
+  </table>
+
+  <div class="ibox accent"><div class="ibox-title">예약·상담에 대한 관심 클릭은 안정적으로 유지되고 있습니다</div><div class="ibox-body">전월 대비 총 클릭이 11% 감소했으나, 핵심 전환 지표인 카카오 1:1 상담(411건, -4%)과 네이버 예약(357건)은 높은 수준을 유지하고 있습니다. 리틀리 도입 초기(4/22-5/11, 37건) 대비 예약+상담 합산이 <strong>768건으로 20배 이상 성장한 수준</strong>을 이어가고 있습니다.</div></div>
+
+  <hr class="divider">
+
+  <div class="sec-label">05 · 다음 달 운영 전략</div>
+  <div class="sec-title">10월 방향성</div>
+
+  <div>
+    <div class="strat-item"><div class="strat-num">1</div><div><div class="strat-title">정보성 콘텐츠 + 댓글 DM 전략 강화 <span class="strat-tag">지속</span></div><div class="strat-body">9/17 웨딩밴드 준비 콘텐츠에서 댓글 68건이라는 역대 최고 수치가 나왔습니다. 댓글 DM 전략이 효과적으로 작동하고 있음을 확인한 만큼, 공유와 저장을 유발하는 정보성 주제에 동일한 방식을 적극 적용합니다.</div></div></div>
+    <div class="strat-item"><div class="strat-num">2</div><div><div class="strat-title">팔로워 순증 회복</div><div class="strat-body">이번 달 팔로워 순감 -43명을 기록했습니다. 영상 콘텐츠 부재와 히트 콘텐츠 부족이 신규 유입 감소로 이어진 것으로 보입니다. 댓글 DM 방식은 팔로우 유도에도 효과적인 구조인 만큼, 이를 통한 팔로워 회복을 기대합니다.</div></div></div>
+    <div class="strat-item"><div class="strat-num">3</div><div><div class="strat-title">영상 콘텐츠 적극 활용</div><div class="strat-body">이번 달 영상 업로드가 0건이었습니다. 영상 콘텐츠가 제공될 경우 빠르게 활용하여 업로드하는 방향으로 운영하며, 영상이 포함될 때 더 높은 도달 성과를 기대할 수 있습니다.</div></div></div>
+    <div class="strat-item"><div class="strat-num">4</div><div><div class="strat-title">새 지표 기준 추이 추적 시작</div><div class="strat-body">인스타그램 지표 개편으로 이번 달부터 채널 전체 수치의 기준이 달라졌습니다. 다음 달부터는 새로운 기준(조회수·팔로워 조회수·비팔로워 조회수)으로 월간 추이를 새로 쌓아가며 채널 성과를 평가합니다.</div></div></div>
+  </div>
+
+  <div class="report-footer">본 리포트는 2026년 10월 11일 기준으로 작성되었습니다. 채널 전체 조회수·도달 수치는 인스타그램 지표 체계 변경으로 전월과 직접 비교가 어렵습니다. 개별 게시물 지표는 각 콘텐츠의 실제 성과를 반영합니다.</div>
+</div>
+</body>
+</html>
