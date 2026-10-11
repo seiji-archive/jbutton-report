@@ -28,14 +28,17 @@
   .notice.teal { background: var(--teal-light); border: 0.5px solid var(--teal); }
   .notice.amber { background: var(--amber-light); border: 0.5px solid var(--amber); }
   .notice.subtle { background: var(--gray-light); border: 0.5px solid var(--line); }
+  .notice.purple { background: var(--purple-light); border: 0.5px solid var(--purple); }
   .notice-title { font-size: 12px; font-weight: 700; margin-bottom: 5px; }
   .notice.teal .notice-title { color: #085041; }
   .notice.amber .notice-title { color: #633806; }
   .notice.subtle .notice-title { color: var(--text-sec); }
+  .notice.purple .notice-title { color: var(--purple-dark); }
   .notice-body { font-size: 13px; line-height: 1.7; }
   .notice.teal .notice-body { color: #0F6E56; }
   .notice.amber .notice-body { color: #854F0B; }
   .notice.subtle .notice-body { color: var(--text-sec); }
+  .notice.purple .notice-body { color: var(--text-sec); }
   hr.divider { border: none; border-top: 0.5px solid var(--line); margin: 32px 0; }
   .sec-label { font-size: 10px; font-weight: 700; color: var(--text-muted); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 8px; }
   .sec-title { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 20px; line-height: 1.3; }
@@ -95,6 +98,34 @@
   .ll-compare td.up { color: var(--teal); } .ll-compare td.dn { color: var(--coral); }
   .ll-compare tr.total td { background: var(--gray-light); font-weight: 700; }
   .ll-compare tr:last-child td { border-bottom: none; }
+  .ab-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 13px; }
+  .ab-table th { padding: 10px 12px; font-weight: 700; font-size: 11px; border-bottom: 0.5px solid var(--line); text-align: center; }
+  .ab-table th.left { text-align: left; }
+  .ab-table th.a { background: #EEF3FF; color: #3C3489; }
+  .ab-table th.b { background: #FFF3E0; color: #633806; }
+  .ab-table th.label { background: var(--gray-light); color: var(--text-muted); }
+  .ab-table td { padding: 10px 12px; border-bottom: 0.5px solid var(--line); color: var(--text-sec); text-align: center; }
+  .ab-table td.left { text-align: left; font-weight: 700; color: var(--text); }
+  .ab-table td.a { background: #F8F9FF; font-weight: 700; color: var(--text); }
+  .ab-table td.b { background: #FFFAF0; font-weight: 700; color: var(--text); }
+  .ab-table td.pending { color: var(--text-muted); font-style: italic; }
+  .ab-table tr:last-child td { border-bottom: none; }
+  .ab-table tr.sum td { font-weight: 700; border-top: 1px solid var(--line); }
+  .ab-table tr.sum td.a { background: #EEF3FF; color: #3C3489; }
+  .ab-table tr.sum td.b { background: #FFF3E0; color: #633806; }
+  .week-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 16px; }
+  .week-card { border-radius: var(--radius-md); padding: 14px 12px; text-align: center; }
+  .week-card.a { background: #EEF3FF; border: 0.5px solid #7F77DD; }
+  .week-card.b { background: #FFF3E0; border: 0.5px solid var(--amber); }
+  .week-card.pending { background: var(--gray-light); border: 0.5px dashed var(--line); }
+  .week-card-label { font-size: 10px; font-weight: 700; margin-bottom: 4px; }
+  .week-card.a .week-card-label { color: #3C3489; }
+  .week-card.b .week-card-label { color: #633806; }
+  .week-card.pending .week-card-label { color: var(--text-muted); }
+  .week-card-week { font-size: 11px; color: var(--text-muted); margin-bottom: 8px; }
+  .week-card-val { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+  .week-card.pending .week-card-val { font-size: 13px; color: var(--text-muted); }
+  .week-card-sub { font-size: 10px; color: var(--text-sec); }
   .trend-row { display: grid; grid-template-columns: repeat(5,1fr); gap: 6px; margin-bottom: 8px; }
   .tcard { background: var(--gray-light); border-radius: var(--radius-md); padding: 12px 8px; text-align: center; }
   .tcard.now { background: var(--purple-light); border: 0.5px solid var(--purple); }
@@ -114,8 +145,10 @@
     .header-title { font-size: 20px; } .sec-title { font-size: 17px; margin-bottom: 14px; }
     .metric-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; } .metric-value { font-size: 18px; }
     .type-grid { grid-template-columns: 1fr; gap: 8px; }
+    .week-row { grid-template-columns: repeat(2, 1fr); }
     .trend-row { grid-template-columns: repeat(3, 1fr); }
     .ll-compare { font-size: 12px; } .ll-compare th, .ll-compare td { padding: 8px; }
+    .ab-table { font-size: 12px; } .ab-table th, .ab-table td { padding: 8px; }
     .rank-title { font-size: 13px; } .strat-title { font-size: 13px; } .strat-body { font-size: 12px; }
     hr.divider { margin: 24px 0; }
   }
@@ -260,7 +293,86 @@
     <div class="strat-item"><div class="strat-num">4</div><div><div class="strat-title">새 지표 기준 추이 추적 시작</div><div class="strat-body">인스타그램 지표 개편으로 이번 달부터 채널 전체 수치의 기준이 달라졌습니다. 다음 달부터는 새로운 기준(조회수·팔로워 조회수·비팔로워 조회수)으로 월간 추이를 새로 쌓아가며 채널 성과를 평가합니다.</div></div></div>
   </div>
 
-  <div class="report-footer">본 리포트는 2026년 10월 11일 기준으로 작성되었습니다. 채널 전체 조회수·도달 수치는 인스타그램 지표 체계 변경으로 전월과 직접 비교가 어렵습니다. 개별 게시물 지표는 각 콘텐츠의 실제 성과를 반영합니다.</div>
+  <hr class="divider">
+
+  <div class="sec-label">06 · 콘텐츠 구성 A/B 테스트</div>
+  <div class="sec-title">주간 콘텐츠 비중 변경 — 도달·조회 비교</div>
+
+  <div class="notice purple">
+    <div class="notice-title">테스트 목적</div>
+    <div class="notice-body">클라이언트 제안으로 9월 3주차부터 주간 콘텐츠 구성 비중을 변경하여 도달·조회 수치 변화를 비교합니다. 각 조건을 2주씩 운영한 후 주당 평균으로 최종 비교합니다.<br><br>
+    <strong>기존 방식 (A · 1,2주차)</strong> — 정보성·전환형 2건 + 브랜드형(반지소개) 1건<br>
+    <strong>테스트 방식 (B · 3,4주차)</strong> — 브랜드형(반지소개) 2건 + 정보성·전환형 1건
+    </div>
+  </div>
+
+  <div style="font-size:11px;color:var(--text-muted);margin-bottom:10px;">주차별 7일치 기준 · 도달 합계</div>
+  <div class="week-row">
+    <div class="week-card a">
+      <div class="week-card-label">A · 기존 방식</div>
+      <div class="week-card-week">1주차 (9/15~9/21)</div>
+      <div class="week-card-val">5,968</div>
+      <div class="week-card-sub">조회 11,009</div>
+    </div>
+    <div class="week-card a">
+      <div class="week-card-label">A · 기존 방식</div>
+      <div class="week-card-week">2주차 (9/22~9/28)</div>
+      <div class="week-card-val">4,464</div>
+      <div class="week-card-sub">조회 7,762</div>
+    </div>
+    <div class="week-card b">
+      <div class="week-card-label">B · 테스트 방식</div>
+      <div class="week-card-week">3주차 (9/29~10/5)</div>
+      <div class="week-card-val">2,471</div>
+      <div class="week-card-sub">조회 5,065</div>
+    </div>
+    <div class="week-card pending">
+      <div class="week-card-label">B · 테스트 방식</div>
+      <div class="week-card-week">4주차 (10/6~10/11)</div>
+      <div class="week-card-val">수집 중</div>
+      <div class="week-card-sub">—</div>
+    </div>
+  </div>
+
+  <table class="ab-table">
+    <tr>
+      <th class="label left">구분</th>
+      <th class="a">A · 기존 방식<br><span style="font-weight:400;font-size:10px;">1+2주차 평균</span></th>
+      <th class="b">B · 테스트 방식<br><span style="font-weight:400;font-size:10px;">3주차 (4주차 수집 중)</span></th>
+    </tr>
+    <tr>
+      <td class="left">주당 총 도달</td>
+      <td class="a">5,216명</td>
+      <td class="b">2,471명</td>
+    </tr>
+    <tr>
+      <td class="left">주당 총 조회</td>
+      <td class="a">9,386회</td>
+      <td class="b">5,065회</td>
+    </tr>
+    <tr class="sum">
+      <td class="left">현재 도달 차이</td>
+      <td class="a">기준</td>
+      <td class="b" style="color:var(--coral);">-52.6%</td>
+    </tr>
+  </table>
+
+  <div class="ibox muted">
+    <div class="ibox-title">⚠️ 4주차 데이터 수집 후 최종 비교 예정</div>
+    <div class="ibox-body">현재는 B방식 3주차 1주치만 수집된 상태로 아직 결론을 내기 이릅니다. 4주차 데이터가 완료되면 A(1+2주차 평균) vs B(3+4주차 평균)로 최종 비교합니다.</div>
+  </div>
+
+  <div class="ibox">
+    <div class="ibox-title">현재까지의 인사이트</div>
+    <div class="ibox-body">
+      <strong>도달 측면에서는 기존 방식(A)이 높게 나타나고 있습니다.</strong> 다만 몇 가지 맥락을 함께 봐야 합니다.<br><br>
+      첫째, 1주차 도달이 높은 이유는 웨딩밴드 콘텐츠(도달 4,702)가 크게 확산된 영향입니다. 정보성 콘텐츠는 주제에 따라 주간 수치가 크게 흔들리는 특성이 있어, 어떤 콘텐츠가 터지느냐에 따라 결과가 달라집니다.<br><br>
+      둘째, 브랜드형(반지소개) 콘텐츠는 도달은 낮지만 기존 팔로워의 반복 조회 비율이 높습니다. 신규 유입보다 <strong>팔로워 유지와 브랜드 친밀감 형성</strong>에 기여하는 역할이 있어, 도달 수치만으로 우열을 가리기 어렵습니다.<br><br>
+      4주차 데이터가 수집되면 이 리포트에 최종 결과를 추가합니다.
+    </div>
+  </div>
+
+  <div class="report-footer">본 리포트는 2026년 10월 11일 기준으로 작성되었습니다. 채널 전체 조회수·도달 수치는 인스타그램 지표 체계 변경으로 전월과 직접 비교가 어렵습니다. 개별 게시물 지표는 각 콘텐츠의 실제 성과를 반영합니다. A/B 테스트 결과는 4주차 데이터 수집 후 업데이트됩니다.</div>
 </div>
 </body>
 </html>
