@@ -108,7 +108,6 @@
   .ab-table td.left { text-align: left; font-weight: 700; color: var(--text); }
   .ab-table td.a { background: #F8F9FF; font-weight: 700; color: var(--text); }
   .ab-table td.b { background: #FFFAF0; font-weight: 700; color: var(--text); }
-  .ab-table td.pending { color: var(--text-muted); font-style: italic; }
   .ab-table tr:last-child td { border-bottom: none; }
   .ab-table tr.sum td { font-weight: 700; border-top: 1px solid var(--line); }
   .ab-table tr.sum td.a { background: #EEF3FF; color: #3C3489; }
@@ -126,13 +125,6 @@
   .week-card-val { font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
   .week-card.pending .week-card-val { font-size: 13px; color: var(--text-muted); }
   .week-card-sub { font-size: 10px; color: var(--text-sec); }
-  .trend-row { display: grid; grid-template-columns: repeat(5,1fr); gap: 6px; margin-bottom: 8px; }
-  .tcard { background: var(--gray-light); border-radius: var(--radius-md); padding: 12px 8px; text-align: center; }
-  .tcard.now { background: var(--purple-light); border: 0.5px solid var(--purple); }
-  .tcard-period { font-size: 9px; color: var(--text-muted); margin-bottom: 4px; }
-  .tcard-val { font-size: 13px; font-weight: 700; color: var(--text); }
-  .tcard.now .tcard-val { color: var(--purple-dark); font-size: 15px; }
-  .tcard-sub { font-size: 9px; color: var(--text-sec); margin-top: 2px; }
   .strat-item { display: flex; gap: 14px; padding: 16px 0; border-bottom: 0.5px solid var(--line); align-items: flex-start; }
   .strat-item:last-child { border-bottom: none; }
   .strat-num { width: 26px; height: 26px; border-radius: 50%; background: var(--purple-light); color: var(--purple-dark); font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
@@ -146,7 +138,6 @@
     .metric-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; } .metric-value { font-size: 18px; }
     .type-grid { grid-template-columns: 1fr; gap: 8px; }
     .week-row { grid-template-columns: repeat(2, 1fr); }
-    .trend-row { grid-template-columns: repeat(3, 1fr); }
     .ll-compare { font-size: 12px; } .ll-compare th, .ll-compare td { padding: 8px; }
     .ab-table { font-size: 12px; } .ab-table th, .ab-table td { padding: 8px; }
     .rank-title { font-size: 13px; } .strat-title { font-size: 13px; } .strat-body { font-size: 12px; }
@@ -196,7 +187,7 @@
     <div class="metric-card">
       <div class="metric-label">프로필 방문 수</div>
       <div class="metric-value">3,100건</div>
-      <div class="metric-delta delta-down">↓ 73.7% vs 전월</div>
+      <div class="metric-delta delta-down">↓ 73.7% vs 전월 · 최근 4개월 최저</div>
       <div class="compare-row"><span class="prev">전월 11,766건</span></div>
     </div>
     <div class="metric-card">
@@ -208,19 +199,24 @@
     <div class="metric-card">
       <div class="metric-label">게시물 업로드</div>
       <div class="metric-value">14건</div>
-      <div class="metric-delta delta-neu">전월 동일</div>
-      <div class="compare-row"><span class="prev">영상 전월 5건</span><span class="curr down">이달 0건</span></div>
+      <div class="metric-delta delta-neu">영상 1건 포함</div>
+      <div class="compare-row"><span class="prev">전월 19건 (영상 5건)</span><span class="curr down">영상 급감</span></div>
     </div>
   </div>
 
   <div class="ibox warn">
     <div class="ibox-title">채널 전체 도달 수치에 대하여</div>
-    <div class="ibox-body">이번 달 대시보드에 표시되는 채널 전체 조회수(99,455)와 도달 수치는 인스타그램 지표 개편의 영향을 받아 전월과 직접 비교하기 어렵습니다. 다만 개별 게시물 도달 합산(22,020명)은 지난달 수준과 유사하며, <strong>콘텐츠 자체의 퍼포먼스는 정상 범위를 유지하고 있습니다.</strong> 아래 콘텐츠 유형별 비교에서 실질 성과를 확인하세요.</div>
+    <div class="ibox-body">이번 달 대시보드에 표시되는 채널 전체 조회수(99,455)와 도달 수치는 인스타그램 지표 개편의 영향을 받아 전월과 직접 비교하기 어렵습니다. 다만 개별 게시물 도달 합산(22,020명)은 지난달 수준과 유사하며, <strong>콘텐츠 자체의 퍼포먼스는 정상 범위를 유지하고 있습니다.</strong></div>
+  </div>
+
+  <div class="ibox warn">
+    <div class="ibox-title">영상 콘텐츠 급감이 프로필 방문·도달에 영향을 줬습니다</div>
+    <div class="ibox-body">지난달 영상 5건 → 이번 달 1건으로 줄었습니다. 영상(릴스)은 탐색 탭과 추천 피드를 통해 비팔로워에게 노출되는 주요 경로인데, 이 유입이 줄면서 프로필 방문(11,766 → 3,100)이 크게 감소한 것으로 보입니다. 이번 달 업로드한 영상 1건도 신규 제작 콘텐츠가 아닌 반지소개 브랜드형이라 도달·조회가 크게 확산되지 않았습니다. <strong>영상 콘텐츠가 채널 신규 유입과 바이럴에 얼마나 기여하는지 다시 한번 확인된 달입니다.</strong></div>
   </div>
 
   <div class="ibox muted">
     <div class="ibox-title">팔로워 순감 -43명에 대하여</div>
-    <div class="ibox-body">이번 달 신규 팔로워 103명, 언팔 146명으로 순감 -43명을 기록했습니다. 신규 유입 감소는 영상 콘텐츠 부재와 히트 콘텐츠 1건을 제외한 전반적인 도달 수준이 낮았던 점이 영향을 준 것으로 보입니다. 팔로워 수 자체(12,153명)는 안정적으로 유지되고 있습니다.</div>
+    <div class="ibox-body">신규 팔로워 103명, 언팔 146명으로 순감 -43명을 기록했습니다.<br><br>이탈 원인으로 두 가지를 추론할 수 있습니다. 첫째, <strong>댓글 DM 전략의 구조적 특성</strong>입니다. 정보성 콘텐츠에 댓글을 달고 DM으로 정보를 받은 후 팔로우를 취소하는 흐름이 일부 발생하고 있습니다. 웨딩밴드 준비처럼 일회성 니즈를 가진 사용자는 정보를 획득한 순간 팔로우 유지 이유가 사라질 수 있습니다. 둘째, 이번 달 <strong>브랜드형(반지소개) 콘텐츠가 8건으로 집중</strong>되면서 기존 팔로워 일부가 피로감을 느꼈을 가능성이 있습니다. 다만 이는 데이터로 확인하기 어려운 추론이며, 팔로워 수 자체(12,153명)는 안정적으로 유지되고 있습니다.</div>
   </div>
 
   <hr class="divider">
@@ -239,6 +235,7 @@
   <div style="margin-top:16px;">
     <div class="bar-section"><div class="bar-group-title">저장 합계</div><div class="bar-wrap"><div class="bar-label-row"><span>정보성 (4건)</span><span>234</span></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#1D9E75;"></div></div></div><div class="bar-wrap"><div class="bar-label-row"><span>브랜드형 (8건)</span><span>71</span></div><div class="bar-track"><div class="bar-fill" style="width:30.3%;background:#D85A30;"></div></div></div><div class="bar-wrap"><div class="bar-label-row"><span>전환형 (2건)</span><span>25</span></div><div class="bar-track"><div class="bar-fill" style="width:10.7%;background:#7F77DD;"></div></div></div></div>
     <div class="bar-section"><div class="bar-group-title">공유 합계</div><div class="bar-wrap"><div class="bar-label-row"><span>정보성 (4건)</span><span>202</span></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#1D9E75;"></div></div></div><div class="bar-wrap"><div class="bar-label-row"><span>브랜드형 (8건)</span><span>112</span></div><div class="bar-track"><div class="bar-fill" style="width:55.4%;background:#D85A30;"></div></div></div><div class="bar-wrap"><div class="bar-label-row"><span>전환형 (2건)</span><span>30</span></div><div class="bar-track"><div class="bar-fill" style="width:14.9%;background:#7F77DD;"></div></div></div></div>
+    <div class="bar-section"><div class="bar-group-title">좋아요 합계</div><div class="bar-wrap"><div class="bar-label-row"><span>정보성 (4건)</span><span>90</span></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#1D9E75;"></div></div></div><div class="bar-wrap"><div class="bar-label-row"><span>브랜드형 (8건)</span><span>84</span></div><div class="bar-track"><div class="bar-fill" style="width:93.3%;background:#D85A30;"></div></div></div><div class="bar-wrap"><div class="bar-label-row"><span>전환형 (2건)</span><span>24</span></div><div class="bar-track"><div class="bar-fill" style="width:26.7%;background:#7F77DD;"></div></div></div></div>
   </div>
 
   <hr class="divider">
@@ -255,19 +252,7 @@
   <hr class="divider">
 
   <div class="sec-label">04 · 리틀리 유입 분석</div>
-  <div class="sec-title">6개월 누적 추이 — 총 클릭 1,836건</div>
-
-  <div style="margin-bottom:16px;">
-    <div style="font-size:11px;color:var(--text-muted);margin-bottom:10px;">리틀리 월간 총 클릭 추이</div>
-    <div class="trend-row">
-      <div class="tcard"><div class="tcard-period">4/22-5/11</div><div class="tcard-val">121건</div><div class="tcard-sub">도입 첫 달</div></div>
-      <div class="tcard"><div class="tcard-period">5/12-6/11</div><div class="tcard-val">316건</div><div class="tcard-sub">↑ 161%</div></div>
-      <div class="tcard"><div class="tcard-period">6/12-7/11</div><div class="tcard-val">548건</div><div class="tcard-sub">↑ 73%</div></div>
-      <div class="tcard"><div class="tcard-period">7/12-8/11</div><div class="tcard-val">1,723건</div><div class="tcard-sub">↑ 214%</div></div>
-      <div class="tcard"><div class="tcard-period">8/12-9/11</div><div class="tcard-val">2,059건</div><div class="tcard-sub">↑ 20%</div></div>
-    </div>
-    <div class="tcard now" style="max-width:160px;margin-top:6px;"><div class="tcard-period">9/12-10/11</div><div class="tcard-val">1,836건</div><div class="tcard-sub">↓ 11%</div></div>
-  </div>
+  <div class="sec-title">총 클릭 1,836건</div>
 
   <table class="ll-compare">
     <tr><th>링크 항목</th><th>7/12-8/11</th><th>8/12-9/11</th><th>9/12-10/11</th><th>전월 대비</th></tr>
@@ -279,7 +264,7 @@
     <tr class="total"><td>합계</td><td>1,723</td><td>2,059</td><td>1,836건</td><td class="dn">-11%</td></tr>
   </table>
 
-  <div class="ibox accent"><div class="ibox-title">예약·상담에 대한 관심 클릭은 안정적으로 유지되고 있습니다</div><div class="ibox-body">전월 대비 총 클릭이 11% 감소했으나, 핵심 전환 지표인 카카오 1:1 상담(411건, -4%)과 네이버 예약(357건)은 높은 수준을 유지하고 있습니다. 리틀리 도입 초기(4/22-5/11, 37건) 대비 예약+상담 합산이 <strong>768건으로 20배 이상 성장한 수준</strong>을 이어가고 있습니다.</div></div>
+  <div class="ibox accent"><div class="ibox-title">예약·상담에 대한 관심 클릭은 안정적으로 유지되고 있습니다</div><div class="ibox-body">전월 대비 총 클릭이 11% 감소했으나, 핵심 전환 지표인 카카오 1:1 상담(411건, -4%)과 네이버 예약(357건)은 높은 수준을 유지하고 있습니다. 리틀리 도입 초기(4/22-5/11) 예약+상담 합산 37건 대비 이번 달 <strong>768건으로 20배 이상 성장한 수준</strong>을 이어가고 있습니다.</div></div>
 
   <hr class="divider">
 
@@ -288,8 +273,8 @@
 
   <div>
     <div class="strat-item"><div class="strat-num">1</div><div><div class="strat-title">정보성 콘텐츠 + 댓글 DM 전략 강화 <span class="strat-tag">지속</span></div><div class="strat-body">9/17 웨딩밴드 준비 콘텐츠에서 댓글 68건이라는 역대 최고 수치가 나왔습니다. 댓글 DM 전략이 효과적으로 작동하고 있음을 확인한 만큼, 공유와 저장을 유발하는 정보성 주제에 동일한 방식을 적극 적용합니다.</div></div></div>
-    <div class="strat-item"><div class="strat-num">2</div><div><div class="strat-title">팔로워 순증 회복</div><div class="strat-body">이번 달 팔로워 순감 -43명을 기록했습니다. 영상 콘텐츠 부재와 히트 콘텐츠 부족이 신규 유입 감소로 이어진 것으로 보입니다. 댓글 DM 방식은 팔로우 유도에도 효과적인 구조인 만큼, 이를 통한 팔로워 회복을 기대합니다.</div></div></div>
-    <div class="strat-item"><div class="strat-num">3</div><div><div class="strat-title">영상 콘텐츠 적극 활용</div><div class="strat-body">이번 달 영상 업로드가 0건이었습니다. 영상 콘텐츠가 제공될 경우 빠르게 활용하여 업로드하는 방향으로 운영하며, 영상이 포함될 때 더 높은 도달 성과를 기대할 수 있습니다.</div></div></div>
+    <div class="strat-item"><div class="strat-num">2</div><div><div class="strat-title">팔로워 순증 회복</div><div class="strat-body">이번 달 팔로워 순감 -43명을 기록했습니다. 영상 콘텐츠 부재와 브랜드형 콘텐츠 집중이 신규 유입 감소와 기존 팔로워 이탈에 영향을 준 것으로 보입니다. 정보성 콘텐츠 비중 유지와 댓글 DM 방식을 통한 팔로우 유도로 회복을 도모합니다.</div></div></div>
+    <div class="strat-item"><div class="strat-num">3</div><div><div class="strat-title">영상 콘텐츠 적극 활용</div><div class="strat-body">이번 달 영상 1건에 그치면서 프로필 방문과 신규 유입이 크게 줄었습니다. 영상 콘텐츠가 제공될 경우 빠르게 활용하여 업로드하는 방향으로 운영하며, 영상이 포함될 때 더 높은 도달 성과를 기대할 수 있습니다.</div></div></div>
     <div class="strat-item"><div class="strat-num">4</div><div><div class="strat-title">새 지표 기준 추이 추적 시작</div><div class="strat-body">인스타그램 지표 개편으로 이번 달부터 채널 전체 수치의 기준이 달라졌습니다. 다음 달부터는 새로운 기준(조회수·팔로워 조회수·비팔로워 조회수)으로 월간 추이를 새로 쌓아가며 채널 성과를 평가합니다.</div></div></div>
   </div>
 
@@ -340,21 +325,9 @@
       <th class="a">A · 기존 방식<br><span style="font-weight:400;font-size:10px;">1+2주차 평균</span></th>
       <th class="b">B · 테스트 방식<br><span style="font-weight:400;font-size:10px;">3주차 (4주차 수집 중)</span></th>
     </tr>
-    <tr>
-      <td class="left">주당 총 도달</td>
-      <td class="a">5,216명</td>
-      <td class="b">2,471명</td>
-    </tr>
-    <tr>
-      <td class="left">주당 총 조회</td>
-      <td class="a">9,386회</td>
-      <td class="b">5,065회</td>
-    </tr>
-    <tr class="sum">
-      <td class="left">현재 도달 차이</td>
-      <td class="a">기준</td>
-      <td class="b" style="color:var(--coral);">-52.6%</td>
-    </tr>
+    <tr><td class="left">주당 총 도달</td><td class="a">5,216명</td><td class="b">2,471명</td></tr>
+    <tr><td class="left">주당 총 조회</td><td class="a">9,386회</td><td class="b">5,065회</td></tr>
+    <tr class="sum"><td class="left">현재 도달 차이</td><td class="a">기준</td><td class="b" style="color:var(--coral);">-52.6%</td></tr>
   </table>
 
   <div class="ibox muted">
@@ -364,12 +337,10 @@
 
   <div class="ibox">
     <div class="ibox-title">현재까지의 인사이트</div>
-    <div class="ibox-body">
-      <strong>도달 측면에서는 기존 방식(A)이 높게 나타나고 있습니다.</strong> 다만 몇 가지 맥락을 함께 봐야 합니다.<br><br>
-      첫째, 1주차 도달이 높은 이유는 웨딩밴드 콘텐츠(도달 4,702)가 크게 확산된 영향입니다. 정보성 콘텐츠는 주제에 따라 주간 수치가 크게 흔들리는 특성이 있어, 어떤 콘텐츠가 터지느냐에 따라 결과가 달라집니다.<br><br>
-      둘째, 브랜드형(반지소개) 콘텐츠는 도달은 낮지만 기존 팔로워의 반복 조회 비율이 높습니다. 신규 유입보다 <strong>팔로워 유지와 브랜드 친밀감 형성</strong>에 기여하는 역할이 있어, 도달 수치만으로 우열을 가리기 어렵습니다.<br><br>
-      4주차 데이터가 수집되면 이 리포트에 최종 결과를 추가합니다.
-    </div>
+    <div class="ibox-body"><strong>도달 측면에서는 기존 방식(A)이 높게 나타나고 있습니다.</strong> 다만 몇 가지 맥락을 함께 봐야 합니다.<br><br>
+    첫째, 1주차 도달이 높은 이유는 웨딩밴드 콘텐츠(도달 4,702)가 크게 확산된 영향입니다. 정보성 콘텐츠는 주제에 따라 주간 수치가 크게 흔들리는 특성이 있어 어떤 콘텐츠가 터지느냐에 따라 결과가 달라집니다.<br><br>
+    둘째, 브랜드형(반지소개) 콘텐츠는 도달은 낮지만 기존 팔로워의 반복 조회 비율이 높습니다. 신규 유입보다 <strong>팔로워 유지와 브랜드 친밀감 형성</strong>에 기여하는 역할이 있어, 도달 수치만으로 우열을 가리기 어렵습니다.<br><br>
+    4주차 데이터가 수집되면 이 리포트에 최종 결과를 추가합니다.</div>
   </div>
 
   <div class="report-footer">본 리포트는 2026년 10월 11일 기준으로 작성되었습니다. 채널 전체 조회수·도달 수치는 인스타그램 지표 체계 변경으로 전월과 직접 비교가 어렵습니다. 개별 게시물 지표는 각 콘텐츠의 실제 성과를 반영합니다. A/B 테스트 결과는 4주차 데이터 수집 후 업데이트됩니다.</div>
