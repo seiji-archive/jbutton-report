@@ -133,6 +133,15 @@
   .strat-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 5px; }
   .strat-body { font-size: 13px; color: var(--text-sec); line-height: 1.7; }
   .strat-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-left: 6px; vertical-align: middle; background: var(--teal-light); color: #085041; }
+  html { scroll-behavior: smooth; }
+  .sec-label[id] { scroll-margin-top: 72px; }
+  .toc { position: sticky; top: 0; z-index: 10; display: flex; gap: 6px; overflow-x: auto; margin: 32px -40px 24px; padding: 12px 40px; background: rgba(255,255,255,.96); border-bottom: 0.5px solid var(--line); scrollbar-width: none; }
+  .toc::-webkit-scrollbar { display: none; }
+  .toc a { flex-shrink: 0; font-size: 12px; font-weight: 500; color: var(--text-sec); text-decoration: none; padding: 6px 12px; border-radius: 20px; background: var(--gray-light); border: 0.5px solid var(--line); white-space: nowrap; }
+  .toc a span { color: var(--text-muted); margin-right: 4px; }
+  .toc a:hover { color: var(--purple-dark); border-color: var(--purple); }
+  .toc a.active { background: var(--purple-light); color: var(--purple-dark); border-color: var(--purple); font-weight: 700; }
+  .toc a.active span { color: var(--purple); }
   .report-footer { font-size: 12px; color: var(--text-muted); margin-top: 32px; padding-top: 16px; border-top: 0.5px solid var(--line); line-height: 1.7; }
   @media (max-width: 480px) {
     body { font-size: 14px; } .page { padding: 28px 20px; }
@@ -144,6 +153,7 @@
     .ab-table { font-size: 12px; } .ab-table th, .ab-table td { padding: 8px; }
     .rank-title { font-size: 13px; } .strat-title { font-size: 13px; } .strat-body { font-size: 12px; }
     hr.divider { margin: 24px 0; }
+    .toc { margin: 24px -20px 20px; padding: 10px 20px; }
   }
 </style>
 </head>
@@ -162,9 +172,16 @@
     <div class="notice-body">인스타그램이 이번 달 대시보드의 지표 명칭 및 수집 기준을 공식 업데이트했습니다. 기존 <strong>노출 수(Impressions) · 도달 계정 수(Reach)</strong>가 <strong>조회수 · 조회한 사람</strong>으로 변경되었으며, 집계 방식 자체가 달라져 이전 수치와 단순 비교가 어렵습니다.<br><br>또한 인스타그램 공식 안내에 따르면 일부 지표(조회한 사람)는 현재 <strong>"추산치이며 개발 중"</strong>으로 명시되어 있어 정확한 수치가 아닐 수 있습니다.<br><br>이번 달 리포트는 새로운 기준으로 처음 작성되는 시점으로, 이후 리포트는 모두 새 지표를 기준으로 운영됩니다. 이번 달은 개별 게시물 성과를 중심으로 채널 현황을 평가합니다.</div>
   </div>
 
-  <hr class="divider">
+  <nav class="toc">
+    <a href="#overview"><span>01</span>채널 전체 현황</a>
+    <a href="#types"><span>02</span>유형별 비교</a>
+    <a href="#ranking"><span>03</span>성과 순위</a>
+    <a href="#littly"><span>04</span>리틀리 유입 분석</a>
+    <a href="#strategy"><span>05</span>다음 달 운영 전략</a>
+    <a href="#abtest"><span>06</span>A/B 테스트</a>
+  </nav>
 
-  <div class="sec-label">01 · 채널 전체 현황</div>
+  <div class="sec-label" id="overview">01 · 채널 전체 현황</div>
   <div class="sec-title">이번 달 주요 지표</div>
 
   <div class="metric-grid">
@@ -223,7 +240,7 @@
 
   <hr class="divider">
 
-  <div class="sec-label">02 · 콘텐츠 유형별 비교</div>
+  <div class="sec-label" id="types">02 · 콘텐츠 유형별 비교</div>
   <div class="sec-title">정보성 / 전환형 / 브랜드형 퍼포먼스 (전체 14건)</div>
 
   <div class="type-grid">
@@ -242,7 +259,7 @@
 
   <hr class="divider">
 
-  <div class="sec-label">03 · 콘텐츠 성과 순위</div>
+  <div class="sec-label" id="ranking">03 · 콘텐츠 성과 순위</div>
   <div class="sec-title">이번 달 베스트 5 (도달 기준)</div>
 
   <div class="rank-item"><div class="rank-num" style="color:#BA7517;">1</div><div><div class="rank-title">웨딩밴드 처음 준비한다면, 5가지는 꼭 알고가세요 <span class="badge badge-success">댓글 68건</span></div><div class="rank-meta">9/17 · 정보성 · 캐러셀</div><div class="rank-stats"><div class="rank-stat">도달 <span>8,501</span></div><div class="rank-stat">조회 <span>13,909</span></div><div class="rank-stat">저장 <span>202</span></div><div class="rank-stat">공유 <span>161</span></div><div class="rank-stat">좋아요 <span>48</span></div><div class="rank-stat">팔로우 <span>15</span></div></div></div></div>
@@ -253,7 +270,7 @@
 
   <hr class="divider">
 
-  <div class="sec-label">04 · 리틀리 유입 분석</div>
+  <div class="sec-label" id="littly">04 · 리틀리 유입 분석</div>
   <div class="sec-title">총 클릭 1,836건</div>
 
   <table class="ll-compare">
@@ -270,7 +287,7 @@
 
   <hr class="divider">
 
-  <div class="sec-label">05 · 다음 달 운영 전략</div>
+  <div class="sec-label" id="strategy">05 · 다음 달 운영 전략</div>
   <div class="sec-title">10월 방향성</div>
 
   <div>
@@ -282,7 +299,7 @@
 
   <hr class="divider">
 
-  <div class="sec-label">06 · 콘텐츠 구성 A/B 테스트</div>
+  <div class="sec-label" id="abtest">06 · 콘텐츠 구성 A/B 테스트</div>
   <div class="sec-title">주간 콘텐츠 비중 변경 — 도달·조회 비교</div>
 
   <div class="notice purple">
@@ -349,5 +366,24 @@
 
   <div class="report-footer">본 리포트는 2026년 10월 11일 기준으로 작성되었습니다. 인스타그램 지표 수집 기준 변경으로 이번 달부터 새 기준(조회수·조회한 사람)으로 운영됩니다. 일부 지표는 인스타그램 공식 안내에 따라 추산치로 제공될 수 있습니다. A/B 테스트 결과는 4주차(10/4~10/10) 데이터를 반영해 업데이트되었습니다.</div>
 </div>
+<script>
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+    var targets = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+    function update() {
+      var idx = 0;
+      targets.forEach(function (t, i) { if (t && t.getBoundingClientRect().top <= Math.max(90, window.innerHeight * 0.3)) idx = i; });
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2) idx = targets.length - 1;
+      links.forEach(function (a, i) { a.classList.toggle('active', i === idx); });
+      var active = links[idx];
+      var bar = active.parentNode;
+      if (active.offsetLeft < bar.scrollLeft || active.offsetLeft + active.offsetWidth > bar.scrollLeft + bar.clientWidth) {
+        bar.scrollTo({ left: active.offsetLeft - 20, behavior: 'smooth' });
+      }
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  })();
+</script>
 </body>
 </html>
