@@ -289,35 +289,36 @@
     <div class="notice-title">테스트 목적</div>
     <div class="notice-body">클라이언트 제안으로 9월 3주차부터 주간 콘텐츠 구성 비중을 변경하여 도달·조회 수치 변화를 비교합니다. 각 조건을 2주씩 운영한 후 주당 평균으로 최종 비교합니다.<br><br>
     <strong>기존 방식 (A · 1,2주차)</strong> — 정보성·전환형 2건 + 브랜드형(반지소개) 1건<br>
-    <strong>테스트 방식 (B · 3,4주차)</strong> — 브랜드형(반지소개) 2건 + 정보성·전환형 1건
+    <strong>테스트 방식 (B · 3,4주차)</strong> — 브랜드형(반지소개) 2건 + 정보성·전환형 1건<br><br>
+    주차는 일~토 기준이며, 주차별 테스트 구성 3건만 집계했습니다. (제외: 9/22 추석 안내, 9/27 이클립스 릴스)
     </div>
   </div>
 
-  <div style="font-size:11px;color:var(--text-muted);margin-bottom:10px;">주차별 7일치 기준 · 도달 합계</div>
+  <div style="font-size:11px;color:var(--text-muted);margin-bottom:10px;">주차별 7일치 기준 · 테스트 구성 3건 도달 합계</div>
   <div class="week-row">
     <div class="week-card a">
       <div class="week-card-label">A · 기존 방식</div>
-      <div class="week-card-week">1주차 (9/15~9/21)</div>
+      <div class="week-card-week">1주차 (9/13~9/19)</div>
       <div class="week-card-val">5,968</div>
       <div class="week-card-sub">조회 11,009</div>
     </div>
     <div class="week-card a">
       <div class="week-card-label">A · 기존 방식</div>
-      <div class="week-card-week">2주차 (9/22~9/28)</div>
+      <div class="week-card-week">2주차 (9/20~9/26)</div>
       <div class="week-card-val">4,464</div>
       <div class="week-card-sub">조회 7,762</div>
     </div>
     <div class="week-card b">
       <div class="week-card-label">B · 테스트 방식</div>
-      <div class="week-card-week">3주차 (9/29~10/5)</div>
+      <div class="week-card-week">3주차 (9/27~10/3)</div>
       <div class="week-card-val">2,471</div>
       <div class="week-card-sub">조회 5,065</div>
     </div>
-    <div class="week-card pending">
+    <div class="week-card b">
       <div class="week-card-label">B · 테스트 방식</div>
-      <div class="week-card-week">4주차 (10/6~10/11)</div>
-      <div class="week-card-val">수집 중</div>
-      <div class="week-card-sub">—</div>
+      <div class="week-card-week">4주차 (10/4~10/10)</div>
+      <div class="week-card-val">2,293</div>
+      <div class="week-card-sub">조회 4,591</div>
     </div>
   </div>
 
@@ -325,27 +326,28 @@
     <tr>
       <th class="label left">구분</th>
       <th class="a">A · 기존 방식<br><span style="font-weight:400;font-size:10px;">1+2주차 평균</span></th>
-      <th class="b">B · 테스트 방식<br><span style="font-weight:400;font-size:10px;">3주차 (4주차 수집 중)</span></th>
+      <th class="b">B · 테스트 방식<br><span style="font-weight:400;font-size:10px;">3+4주차 평균</span></th>
     </tr>
-    <tr><td class="left">주당 총 도달</td><td class="a">5,216명</td><td class="b">2,471명</td></tr>
-    <tr><td class="left">주당 총 조회</td><td class="a">9,386회</td><td class="b">5,065회</td></tr>
-    <tr class="sum"><td class="left">현재 도달 차이</td><td class="a">기준</td><td class="b" style="color:var(--coral);">-52.6%</td></tr>
+    <tr><td class="left">주당 총 도달</td><td class="a">5,216명</td><td class="b">2,382명</td></tr>
+    <tr><td class="left">주당 총 조회</td><td class="a">9,386회</td><td class="b">4,828회</td></tr>
+    <tr class="sum"><td class="left">도달 차이</td><td class="a">기준</td><td class="b" style="color:var(--coral);">-54.3%</td></tr>
+    <tr class="sum"><td class="left">조회 차이</td><td class="a">기준</td><td class="b" style="color:var(--coral);">-48.6%</td></tr>
   </table>
 
-  <div class="ibox muted">
-    <div class="ibox-title">⚠️ 4주차 데이터 수집 후 최종 비교 예정</div>
-    <div class="ibox-body">현재는 B방식 3주차 1주치만 수집된 상태로 아직 결론을 내기 이릅니다. 4주차 데이터가 완료되면 A(1+2주차 평균) vs B(3+4주차 평균)로 최종 비교합니다.</div>
+  <div class="ibox accent">
+    <div class="ibox-title">최종 결과 — 도달·조회 모두 기존 방식(A)이 높게 나타났습니다</div>
+    <div class="ibox-body">A(1+2주차 평균)와 B(3+4주차 평균)를 비교한 결과, B는 주당 도달 <strong>-54.3%</strong>, 주당 조회 <strong>-48.6%</strong>로 두 지표 모두 A보다 낮았습니다. B의 두 주차(2,471 · 2,293)가 비슷한 수준으로 나타나 일시적인 하락보다는 구성 변경에 따른 차이로 볼 수 있습니다.</div>
   </div>
 
   <div class="ibox">
-    <div class="ibox-title">현재까지의 인사이트</div>
-    <div class="ibox-body"><strong>도달 측면에서는 기존 방식(A)이 높게 나타나고 있습니다.</strong> 다만 몇 가지 맥락을 함께 봐야 합니다.<br><br>
-    첫째, 1주차 도달이 높은 이유는 웨딩밴드 콘텐츠(도달 4,702)가 크게 확산된 영향입니다. 정보성 콘텐츠는 주제에 따라 주간 수치가 크게 흔들리는 특성이 있어 어떤 콘텐츠가 터지느냐에 따라 결과가 달라집니다.<br><br>
-    둘째, 브랜드형(반지소개) 콘텐츠는 도달은 낮지만 기존 팔로워의 반복 조회 비율이 높습니다. 신규 유입보다 <strong>팔로워 유지와 브랜드 친밀감 형성</strong>에 기여하는 역할이 있어, 도달 수치만으로 우열을 가리기 어렵습니다.<br><br>
-    4주차 데이터가 수집되면 이 리포트에 최종 결과를 추가합니다.</div>
+    <div class="ibox-title">결과 해석</div>
+    <div class="ibox-body">첫째, 1주차 도달이 높은 데에는 웨딩밴드 콘텐츠(도달 4,702)의 확산 영향이 큽니다. 다만 이 주를 빼고 2주차(4,464)만 보더라도 B 주당 평균(2,382)의 약 1.9배로, <strong>정보성 비중이 높은 주의 도달이 더 높다</strong>는 방향은 같습니다.<br><br>
+    둘째, 브랜드형(반지소개) 콘텐츠는 도달은 낮지만 기존 팔로워의 반복 조회 비율이 높아 <strong>팔로워 유지와 브랜드 친밀감 형성</strong>에 기여하는 역할이 있습니다. 이번 테스트는 도달·조회만 비교했기 때문에 이 효과는 별도로 확인하지 못했습니다.<br><br>
+    셋째, 조건별 2주씩의 결과로 표본이 크지 않고, 정보성 콘텐츠는 주제에 따라 주간 수치가 크게 흔들립니다. 결과는 방향성 참고로 보는 것이 적절합니다.<br><br>
+    <strong>신규 도달 확보를 위해 기존 방식(A · 정보성·전환형 2건 + 반지소개 1건) 구성으로 운영하는 것을 제안드립니다.</strong></div>
   </div>
 
-  <div class="report-footer">본 리포트는 2026년 10월 11일 기준으로 작성되었습니다. 인스타그램 지표 수집 기준 변경으로 이번 달부터 새 기준(조회수·조회한 사람)으로 운영됩니다. 일부 지표는 인스타그램 공식 안내에 따라 추산치로 제공될 수 있습니다. A/B 테스트 결과는 4주차 데이터 수집 후 업데이트됩니다.</div>
+  <div class="report-footer">본 리포트는 2026년 10월 11일 기준으로 작성되었습니다. 인스타그램 지표 수집 기준 변경으로 이번 달부터 새 기준(조회수·조회한 사람)으로 운영됩니다. 일부 지표는 인스타그램 공식 안내에 따라 추산치로 제공될 수 있습니다. A/B 테스트 결과는 4주차(10/4~10/10) 데이터를 반영해 업데이트되었습니다.</div>
 </div>
 </body>
 </html>
