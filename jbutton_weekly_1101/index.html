@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>제이버튼 11월 1주차 업로드 안내</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --purple: #7F77DD; --purple-light: #EEEDFE; --purple-dark: #534AB7;
+    --amber: #BA7517; --amber-light: #FAEEDA;
+    --gray-light: #F4F4F2;
+    --line: #E0DED8; --text: #1A1A18; --text-sec: #5F5E5A; --text-muted: #888780;
+    --white: #FFFFFF; --bg: #F8F7F4;
+    --tag-info: #4A3FE0; --tag-brand: #7B2FA8; --tag-conv: #E2572B;
+    --radius-sm: 6px; --radius-md: 10px; --radius-lg: 14px;
+    --font: 'Noto Sans KR', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font); background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  .page { max-width: 800px; margin: 0 auto; padding: 48px 40px; background: var(--white); min-height: 100vh; }
+
+  .report-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 24px; }
+  .header-accent { width: 3px; height: 64px; background: var(--purple); border-radius: 2px; flex-shrink: 0; margin-top: 2px; }
+  .header-period { font-size: 11px; color: var(--text-muted); letter-spacing: .06em; margin-bottom: 4px; }
+  .header-title { font-size: 24px; font-weight: 700; color: var(--text); line-height: 1.25; }
+
+  .summary-label { font-size: 12px; font-weight: 700; color: var(--text-sec); margin: 28px 0 8px; }
+  .summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .summary a { display: block; text-decoration: none; color: inherit; background: var(--gray-light); border: 0.5px solid var(--line); border-radius: var(--radius-md); padding: 14px; }
+  .summary a:hover { border-color: var(--purple); }
+  .summary-date { font-size: 12px; color: var(--text-muted); margin: 8px 0 2px; }
+  .summary-title { font-size: 13px; font-weight: 700; line-height: 1.45; }
+
+  .toc { position: sticky; top: 0; z-index: 10; display: flex; gap: 6px; overflow-x: auto; margin: 32px -40px 24px; padding: 12px 40px; background: rgba(255,255,255,.96); border-bottom: 0.5px solid var(--line); scrollbar-width: none; }
+  .toc::-webkit-scrollbar { display: none; }
+  .toc a { flex-shrink: 0; font-size: 12px; font-weight: 500; color: var(--text-sec); text-decoration: none; padding: 6px 12px; border-radius: 20px; background: var(--gray-light); border: 0.5px solid var(--line); white-space: nowrap; }
+  .toc a span { color: var(--text-muted); margin-right: 4px; }
+  .toc a:hover { color: var(--purple-dark); border-color: var(--purple); }
+  .toc a.active { background: var(--purple-light); color: var(--purple-dark); border-color: var(--purple); font-weight: 700; }
+  .toc a.active span { color: var(--purple); }
+
+  .sec-label { font-size: 10px; font-weight: 700; color: var(--text-muted); letter-spacing: .1em; margin-bottom: 8px; }
+  .sec-label[id] { scroll-margin-top: 72px; }
+  .sec-title { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 16px; line-height: 1.4; }
+  hr.divider { border: none; border-top: 0.5px solid var(--line); margin: 40px 0; }
+
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; color: #fff; padding: 2px 8px; border-radius: 4px; line-height: 1.5; white-space: nowrap; }
+  .tag.info { background: var(--tag-info); }
+  .tag.brand { background: var(--tag-brand); }
+  .tag.conv { background: var(--tag-conv); }
+
+  /* 캘린더 */
+  .cal { display: grid; grid-template-columns: repeat(7, 1fr); border-top: 0.5px solid var(--line); border-left: 0.5px solid var(--line); }
+  .cal-head { font-size: 11px; font-weight: 700; text-align: center; padding: 6px 0; color: #fff; background: #75736E; border-right: 0.5px solid var(--line); }
+  .cal-head.sun { background: #D0342C; }
+  .cal-head.sat { background: #A8A6A0; }
+  .cal-day { min-height: 96px; padding: 6px; border-right: 0.5px solid var(--line); border-bottom: 0.5px solid var(--line); font-size: 11px; }
+  .cal-day.this-week { background: #FBFAFF; }
+  .cal-day.other { color: var(--text-muted); }
+  .cal-num { display: flex; align-items: center; justify-content: space-between; gap: 4px; font-size: 13px; font-weight: 500; margin-bottom: 6px; }
+  .cal-num.sun { color: #D0342C; }
+  .cal-num.sat { color: var(--text-muted); }
+  .cal-num .tag { font-size: 10px; padding: 1px 5px; }
+  .cal-text { line-height: 1.45; color: var(--text-sec); word-break: keep-all; }
+  .cal-day.this-week .cal-text { color: var(--text); font-weight: 500; }
+  .cal-week-mark { grid-column: 1 / -1; }
+  .cal-legend { display: flex; gap: 12px; flex-wrap: wrap; font-size: 11px; color: var(--text-muted); margin-top: 10px; align-items: center; }
+  .cal-legend .swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; background: #FBFAFF; border: 1px solid var(--purple); vertical-align: -1px; margin-right: 4px; }
+  .tag .short { display: none; }
+
+  /* 게시물 */
+  .post-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .post-head .sec-title { margin-bottom: 0; }
+  .post-meta { font-size: 13px; color: var(--text-muted); }
+
+  .carousel { position: relative; margin: 0 -40px 20px; }
+  .track { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 40px; scrollbar-width: none; scroll-padding: 0 40px; }
+  .track::-webkit-scrollbar { display: none; }
+  .card { flex: 0 0 300px; scroll-snap-align: start; position: relative; }
+  .card img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius-md); background: var(--gray-light); }
+  .card-num { position: absolute; top: 8px; right: 8px; font-size: 10px; font-weight: 700; color: #fff; background: rgba(0,0,0,.45); padding: 2px 7px; border-radius: 10px; }
+  .nav-btn { position: absolute; top: calc(50% - 18px); width: 36px; height: 36px; border-radius: 50%; border: 0.5px solid var(--line); background: rgba(255,255,255,.95); color: var(--text); font-size: 18px; line-height: 1; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,.12); display: flex; align-items: center; justify-content: center; }
+  .nav-btn:disabled { opacity: 0; pointer-events: none; }
+  .nav-btn.prev { left: 12px; }
+  .nav-btn.next { right: 12px; }
+  .dots { display: flex; justify-content: center; gap: 5px; margin-top: 10px; }
+  .dots span { width: 6px; height: 6px; border-radius: 50%; background: var(--line); }
+  .dots span.on { background: var(--purple); }
+
+  .caption-box { border: 0.5px solid var(--line); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 12px; }
+  .caption-bar { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--gray-light); border-bottom: 0.5px solid var(--line); }
+  .caption-bar-title { font-size: 12px; font-weight: 700; color: var(--text-sec); }
+  .copy-btn { font-family: var(--font); font-size: 12px; font-weight: 500; color: var(--purple-dark); background: var(--white); border: 0.5px solid var(--purple); border-radius: 20px; padding: 4px 12px; cursor: pointer; }
+  .copy-btn.done { background: var(--purple); color: #fff; }
+  .caption { padding: 16px 18px; font-size: 14px; line-height: 1.8; white-space: pre-line; color: var(--text); }
+
+  .note { border-radius: var(--radius-md); padding: 12px 16px; background: var(--amber-light); border: 0.5px solid var(--amber); font-size: 13px; color: #854F0B; line-height: 1.7; margin-bottom: 8px; word-break: break-all; }
+  .note strong { color: #633806; }
+  .note a { color: #633806; }
+  .dm { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 20px; background: var(--purple-light); color: var(--purple-dark); }
+
+  .report-footer { font-size: 12px; color: var(--text-muted); margin-top: 40px; padding-top: 16px; border-top: 0.5px solid var(--line); line-height: 1.7; }
+
+  @media (max-width: 640px) {
+    /* 모바일: 달력 형태 유지. 칸이 좁아 문구는 글자 단위로 줄바꿈 */
+    .cal { margin: 0 -12px; }
+    .cal-head { font-size: 10px; padding: 5px 0; }
+    .cal-head .yo { display: none; }
+    .cal-day { min-height: 64px; padding: 5px 3px 6px; }
+    .cal-num { flex-direction: column; align-items: flex-start; gap: 3px; font-size: 12px; margin-bottom: 4px; }
+    .cal-num .tag { font-size: 9px; padding: 1px 4px; letter-spacing: -.02em; }
+    .tag .full { display: none; }
+    .tag .short { display: inline; }
+    .cal-text { font-size: 10px; line-height: 1.35; letter-spacing: -.03em; word-break: break-all; }
+    .cal-legend { font-size: 10px; gap: 8px; }
+  }
+  @media (max-width: 480px) {
+    body { font-size: 14px; } .page { padding: 28px 20px; }
+    .header-title { font-size: 20px; } .sec-title { font-size: 17px; }
+    .summary { gap: 6px; }
+    .summary a { padding: 10px 9px; }
+    .summary .tag { font-size: 10px; padding: 1px 6px; }
+    .summary-date { font-size: 11px; margin: 6px 0 2px; }
+    .summary-title { font-size: 12px; line-height: 1.4; word-break: keep-all; }
+    .toc { margin: 24px -20px 20px; padding: 10px 20px; }
+    .carousel { margin: 0 -20px 20px; }
+    .track { padding: 0 20px; scroll-padding: 0 20px; }
+    .card { flex-basis: 82%; }
+    .nav-btn { display: none; }
+    .caption { font-size: 13px; padding: 14px 16px; }
+    hr.divider { margin: 28px 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="report-header">
+    <div class="header-accent"></div>
+    <div>
+      <div class="header-period">11월 1일 — 11월 7일 · 차주 업로드 안내</div>
+      <div class="header-title">제이버튼 인스타그램 11월 1주차</div>
+    </div>
+  </div>
+
+  <nav class="toc">
+    <a href="#calendar"><span>01</span>11월 캘린더</a>
+    <a href="#p1"><span>02</span>11/2 정보성</a>
+    <a href="#p2"><span>03</span>11/4 반지소개</a>
+    <a href="#p3"><span>04</span>11/6 정보성</a>
+  </nav>
+
+  <div class="sec-label" id="calendar">01 · 11월 캘린더</div>
+  <div class="sec-title">11월 업로드 스케줄</div>
+  <div class="cal" id="cal"></div>
+  <div class="cal-legend"><span><span class="swatch"></span>이번 주 (11/1 — 11/7)</span></div>
+
+  <div class="summary-label">이번 주 업로드</div>
+  <div class="summary">
+    <a href="#p1"><span class="tag info">정보성</span><div class="summary-date">11/2 (월)</div><div class="summary-title">짧은 손가락엔 얇은 반지가 정답일까?</div></a>
+    <a href="#p2"><span class="tag brand">브랜딩형</span><div class="summary-date">11/4 (수)</div><div class="summary-title">반지소개 : ONDA</div></a>
+    <a href="#p3"><span class="tag info">정보성</span><div class="summary-date">11/6 (금)</div><div class="summary-title">결혼 후 남편 손에서 반지가 자꾸 사라지는 이유</div></a>
+  </div>
+
+  <hr class="divider">
+
+  <div class="sec-label" id="p1">02 · 11월 2일 (월)</div>
+  <div class="post-head"><span class="tag info">정보성</span><div class="sec-title">짧은 손가락엔 얇은 반지가 정답일까?</div></div>
+  <div class="carousel" data-post="01" data-count="6"></div>
+  <div class="caption-box">
+    <div class="caption-bar"><span class="caption-bar-title">캡션</span><button class="copy-btn" type="button">캡션 복사</button></div>
+    <div class="caption">짧은 손가락엔 얇은 반지.
+한 번쯤 들어본 공식이죠.
+
+그런데 같은 손에 폭만 바꿔 껴보면
+생각과 다른 반지가 더 잘 어울리기도 해요.
+
+반지를 고를 때 폭과 함께 봐야 할 것들,
+스와이프해서 확인해보세요.
+
+📍 종로3가 1번출구 20m · 방문 상담 환영
+🔗 프로필 링크에서 제이버튼 확인하기
+
+#제이버튼 #반지추천 #반지고르는법 #웨딩밴드 #결혼반지</div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="sec-label" id="p2">03 · 11월 4일 (수)</div>
+  <div class="post-head"><span class="tag brand">브랜딩형</span><div class="sec-title">반지소개 : ONDA</div></div>
+  <div class="carousel" data-post="02" data-count="6"></div>
+  <div class="caption-box">
+    <div class="caption-bar"><span class="caption-bar-title">캡션</span></div>
+    <div class="caption">ONDA(온다) 반지에 대한 설명을 아직 전달받지 못해 캡션을 작성하지 못했습니다.
+반지 관련 정보를 전달해 주시면 바로 캡션 작성을 진행하겠습니다.</div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="sec-label" id="p3">04 · 11월 6일 (금)</div>
+  <div class="post-head"><span class="tag info">정보성</span><div class="sec-title">결혼 후 남편 손에서 반지가 자꾸 사라지는 이유</div></div>
+  <div class="carousel" data-post="03" data-count="6"></div>
+  <div class="caption-box">
+    <div class="caption-bar"><span class="caption-bar-title">캡션</span><button class="copy-btn" type="button">캡션 복사</button></div>
+    <div class="caption">결혼하고 나면 한 번쯤 하게 되는 말.
+
+"여보, 결혼반지는 어디 갔어?"
+
+분명 결혼식 날에는 잘 끼고 있었는데,
+어느 순간부터 남편 손에서 반지가 보이지 않는다면?
+
+단순히 귀찮아서일 수도 있지만,
+생각보다 현실적인 이유가 있을 수 있어요.
+
+우리 집에도 해당하는 이야기가 있는지
+스와이프해서 확인해보세요.
+
+📍 종로3가 1번출구 20m · 방문 상담 환영
+🔗 프로필 링크에서 제이버튼 확인하기
+
+#제이버튼 #남자결혼반지 #신랑반지 #웨딩밴드 #결혼반지</div>
+  </div>
+
+  <div class="report-footer">카드 원본 이미지는 Google Drive <strong>11월1주차</strong> 폴더에서 확인하실 수 있습니다.</div>
+</div>
+
+<script>
+  (function () {
+    // 캘린더: [월, 일, 유형, 문구]
+    var EVENTS = [
+      [11, 2, 'info', '짧은 손가락엔 얇은 반지가 정답일까?'],
+      [11, 4, 'brand', '반지소개\nONDA'],
+      [11, 6, 'info', '결혼 후 남편 손에서 반지가 자꾸 사라지는 이유']
+    ];
+    var LABEL = { info: '정보성', brand: '브랜딩형', conv: '전환형' };
+    var SHORT = { info: '정보', brand: '브랜딩', conv: '전환' };
+    var YEAR = 2026, START = new Date(YEAR, 10, 1), WEEKS = 5;
+    var THIS_WEEK = [new Date(YEAR, 10, 1), new Date(YEAR, 10, 7)];
+    var DAYS = ['일', '월', '화', '수', '목', '금', '토'];
+
+    function find(d) {
+      return EVENTS.filter(function (e) { return e[0] === d.getMonth() + 1 && e[1] === d.getDate(); })[0];
+    }
+    function inWeek(d) { return d >= THIS_WEEK[0] && d <= THIS_WEEK[1]; }
+    function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/\n/g, '<br>'); }
+
+    function tag(type) {
+      return '<span class="tag ' + type + '"><span class="full">' + LABEL[type] + '</span><span class="short">' + SHORT[type] + '</span></span>';
+    }
+    var cal = document.getElementById('cal'), html = '';
+    DAYS.forEach(function (d, i) { html += '<div class="cal-head' + (i === 0 ? ' sun' : i === 6 ? ' sat' : '') + '">' + d + '<span class="yo">요일</span></div>'; });
+    for (var i = 0; i < WEEKS * 7; i++) {
+      var d = new Date(START.getFullYear(), START.getMonth(), START.getDate() + i), e = find(d), dow = d.getDay();
+      var cls = 'cal-day' + (d.getMonth() !== START.getMonth() ? ' other' : '') + (inWeek(d) ? ' this-week' : '');
+      html += '<div class="' + cls + '"><div class="cal-num' + (dow === 0 ? ' sun' : dow === 6 ? ' sat' : '') + '"><span>' + d.getDate() + '</span>' +
+        (e ? tag(e[2]) : '') + '</div>' +
+        (e ? '<div class="cal-text">' + esc(e[3]) + '</div>' : '') + '</div>';
+    }
+    cal.innerHTML = html;
+
+    // 카드 캐러셀
+    document.querySelectorAll('.carousel').forEach(function (box) {
+      var post = box.dataset.post, n = +box.dataset.count, cards = '', dots = '';
+      for (var k = 1; k <= n; k++) {
+        var id = post + '_0' + k;
+        cards += '<div class="card"><img src="img/' + id + '.jpg" alt="' + post + '번 게시물 ' + k + '번 카드" loading="lazy" width="1080" height="1350"><span class="card-num">' + post + '-0' + k + '</span></div>';
+        dots += '<span' + (k === 1 ? ' class="on"' : '') + '></span>';
+      }
+      box.innerHTML = '<div class="track">' + cards + '</div><button class="nav-btn prev" type="button" aria-label="이전 카드">‹</button><button class="nav-btn next" type="button" aria-label="다음 카드">›</button><div class="dots">' + dots + '</div>';
+      var track = box.querySelector('.track'), prev = box.querySelector('.prev'), next = box.querySelector('.next'), dotEls = box.querySelectorAll('.dots span');
+      function step() { var c = track.querySelector('.card'); return c.offsetWidth + 10; }
+      function sync() {
+        var idx = Math.round(track.scrollLeft / step());
+        dotEls.forEach(function (s, j) { s.classList.toggle('on', j === Math.min(idx, n - 1)); });
+        prev.disabled = track.scrollLeft < 4;
+        next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+      }
+      prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+      next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+      track.addEventListener('scroll', sync, { passive: true });
+      window.addEventListener('resize', sync);
+      sync();
+    });
+
+    // 캡션 복사
+    document.querySelectorAll('.copy-btn').forEach(function (btn) {
+      var label = btn.textContent;
+      btn.addEventListener('click', function () {
+        var text = btn.closest('.caption-box').querySelector('.caption').textContent;
+        function done() { btn.textContent = '복사됨'; btn.classList.add('done'); setTimeout(function () { btn.textContent = label; btn.classList.remove('done'); }, 1500); }
+        function fallback() {
+          var ta = document.createElement('textarea'), ok = false; ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+          document.body.appendChild(ta); ta.select();
+          try { ok = document.execCommand('copy'); } catch (err) {}
+          document.body.removeChild(ta);
+          if (ok) return done();
+          // 복사가 막힌 환경: 캡션을 선택해 두고 직접 복사하도록 안내
+          var range = document.createRange(), sel = window.getSelection();
+          range.selectNodeContents(btn.closest('.caption-box').querySelector('.caption'));
+          sel.removeAllRanges(); sel.addRange(range);
+          btn.textContent = '선택됨 · 직접 복사해주세요';
+          setTimeout(function () { btn.textContent = label; }, 2500);
+        }
+        if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(text).then(done, fallback); return; }
+        fallback();
+      });
+    });
+
+    // 칩 네비 현재 위치
+    var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+    var targets = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+    function update() {
+      var idx = 0;
+      targets.forEach(function (t, i) { if (t && t.getBoundingClientRect().top <= Math.max(90, window.innerHeight * 0.3)) idx = i; });
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2) idx = targets.length - 1;
+      links.forEach(function (a, i) { a.classList.toggle('active', i === idx); });
+      var active = links[idx], bar = active.parentNode;
+      if (active.offsetLeft < bar.scrollLeft || active.offsetLeft + active.offsetWidth > bar.scrollLeft + bar.clientWidth) {
+        bar.scrollTo({ left: active.offsetLeft - 20, behavior: 'smooth' });
+      }
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  })();
+</script>
+</body>
+</html>
