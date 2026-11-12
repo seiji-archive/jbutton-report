@@ -254,6 +254,7 @@
       [11, 18, 'brand', '반지소개\n루미에르ll'],
       [11, 20, 'info', '반지가 돋보이는 웨딩 스냅 포즈 7가지']
     ];
+    var IMG_V = '1112b'; // 이미지 교체 시 값 변경 (브라우저 캐시 방지)
     var LABEL = { info: '정보성', brand: '브랜딩형', conv: '전환형', video: '영상' };
     var SHORT = { info: '정보', brand: '브랜딩', conv: '전환', video: '영상' };
     var YEAR = 2026, START = new Date(YEAR, 10, 1), WEEKS = 5;
@@ -285,7 +286,7 @@
       var post = box.dataset.post, n = +box.dataset.count, cards = '', dots = '';
       for (var k = 1; k <= n; k++) {
         var id = post + '_0' + k;
-        cards += '<div class="card"><img src="img/' + id + '.jpg" alt="' + post + '번 게시물 ' + k + '번 카드" loading="lazy" width="1080" height="1350" onerror="this.outerHTML=\'<div class=&quot;ph&quot;>이미지 준비 중</div>\'"><span class="card-num">' + post + '-0' + k + '</span></div>';
+        cards += '<div class="card"><img src="img/' + id + '.jpg?v=' + IMG_V + '" alt="' + post + '번 게시물 ' + k + '번 카드" loading="lazy" width="1080" height="1350" onerror="this.outerHTML=\'<div class=&quot;ph&quot;>이미지 준비 중</div>\'"><span class="card-num">' + post + '-0' + k + '</span></div>';
         dots += '<span' + (k === 1 ? ' class="on"' : '') + '></span>';
       }
       box.innerHTML = '<div class="track">' + cards + '</div><button class="nav-btn prev" type="button" aria-label="이전 카드">‹</button><button class="nav-btn next" type="button" aria-label="다음 카드">›</button><div class="dots">' + dots + '</div>';
