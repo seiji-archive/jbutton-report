@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>제이버튼 인스타그램 업로드 안내</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --purple: #7F77DD; --purple-light: #EEEDFE; --purple-dark: #534AB7;
+    --amber: #BA7517; --amber-light: #FAEEDA;
+    --gray-light: #F4F4F2;
+    --line: #E0DED8; --text: #1A1A18; --text-sec: #5F5E5A; --text-muted: #888780;
+    --white: #FFFFFF; --bg: #F8F7F4;
+    --tag-info: #4A3FE0; --tag-brand: #7B2FA8; --tag-conv: #E2572B; --tag-video: #3D7A6E;
+    --radius-sm: 6px; --radius-md: 10px; --radius-lg: 14px;
+    --font: 'Noto Sans KR', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font); background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  .page { max-width: 800px; margin: 0 auto; padding: 48px 40px; background: var(--white); min-height: 100vh; }
+
+  .report-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 24px; }
+  .header-accent { width: 3px; height: 64px; background: var(--purple); border-radius: 2px; flex-shrink: 0; margin-top: 2px; }
+  .header-period { font-size: 11px; color: var(--text-muted); letter-spacing: .06em; margin-bottom: 4px; }
+  .header-title { font-size: 24px; font-weight: 700; color: var(--text); line-height: 1.25; }
+
+  .summary-label { font-size: 12px; font-weight: 700; color: var(--text-sec); margin: 28px 0 8px; }
+  .summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .summary a { display: block; text-decoration: none; color: inherit; background: var(--gray-light); border: 0.5px solid var(--line); border-radius: var(--radius-md); padding: 14px; }
+  .summary a:hover { border-color: var(--purple); }
+  .summary-date { font-size: 12px; color: var(--text-muted); margin: 8px 0 2px; }
+  .summary-title { font-size: 13px; font-weight: 700; line-height: 1.45; }
+
+  .toc { position: sticky; top: 0; z-index: 10; display: flex; gap: 6px; overflow-x: auto; margin: 32px -40px 24px; padding: 12px 40px; background: rgba(255,255,255,.96); border-bottom: 0.5px solid var(--line); scrollbar-width: none; }
+  .toc::-webkit-scrollbar { display: none; }
+  .toc a { flex-shrink: 0; font-size: 12px; font-weight: 500; color: var(--text-sec); text-decoration: none; padding: 6px 12px; border-radius: 20px; background: var(--gray-light); border: 0.5px solid var(--line); white-space: nowrap; }
+  .toc a span { color: var(--text-muted); margin-right: 4px; }
+  .toc a:hover { color: var(--purple-dark); border-color: var(--purple); }
+  .toc a.active { background: var(--purple-light); color: var(--purple-dark); border-color: var(--purple); font-weight: 700; }
+  .toc a.active span { color: var(--purple); }
+
+  .sec-label { font-size: 10px; font-weight: 700; color: var(--text-muted); letter-spacing: .1em; margin-bottom: 8px; }
+  .sec-label[id] { scroll-margin-top: 72px; }
+  .sec-title { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 16px; line-height: 1.4; }
+  hr.divider { border: none; border-top: 0.5px solid var(--line); margin: 40px 0; }
+
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; color: #fff; padding: 2px 8px; border-radius: 4px; line-height: 1.5; white-space: nowrap; }
+  .tag.info { background: var(--tag-info); }
+  .tag.brand { background: var(--tag-brand); }
+  .tag.conv { background: var(--tag-conv); }
+  .tag.video { background: var(--tag-video); }
+
+  /* 캘린더 */
+  .cal-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+  .cal-top .sec-title { margin-bottom: 0; }
+  .month-nav { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
+  .month-nav button { width: 32px; height: 32px; border-radius: 50%; border: 0.5px solid var(--line); background: var(--white); color: var(--text); font-size: 16px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .month-nav button:hover:not(:disabled) { border-color: var(--purple); color: var(--purple-dark); }
+  .month-nav button:disabled { opacity: .3; cursor: default; }
+  .cal { display: grid; grid-template-columns: repeat(7, 1fr); border-top: 0.5px solid var(--line); border-left: 0.5px solid var(--line); }
+  .cal-head { font-size: 11px; font-weight: 700; text-align: center; padding: 6px 0; color: #fff; background: #75736E; border-right: 0.5px solid var(--line); }
+  .cal-head.sun { background: #D0342C; }
+  .cal-head.sat { background: #A8A6A0; }
+  .cal-day { min-height: 96px; padding: 6px; border-right: 0.5px solid var(--line); border-bottom: 0.5px solid var(--line); font-size: 11px; }
+  .cal-day.this-week { background: #FBFAFF; }
+  .cal-day.other { color: var(--text-muted); }
+  .cal-day.other .cal-text { opacity: .6; }
+  .cal-num { display: flex; align-items: center; justify-content: space-between; gap: 4px; font-size: 13px; font-weight: 500; margin-bottom: 6px; }
+  .cal-num.sun { color: #D0342C; }
+  .cal-num.sat { color: var(--text-muted); }
+  .cal-num .tag { font-size: 10px; padding: 1px 5px; }
+  .cal-text { line-height: 1.45; color: var(--text-sec); word-break: keep-all; }
+  .cal-day.this-week .cal-text { color: var(--text); font-weight: 500; }
+  .cal-legend { display: flex; gap: 12px; flex-wrap: wrap; font-size: 11px; color: var(--text-muted); margin-top: 10px; align-items: center; }
+  .cal-legend .swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; background: #FBFAFF; border: 1px solid var(--purple); vertical-align: -1px; margin-right: 4px; }
+  .tag .short { display: none; }
+
+  /* 게시물 */
+  .post-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .post-head .sec-title { margin-bottom: 0; }
+
+  .carousel { position: relative; margin: 0 -40px 20px; }
+  .track { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 40px; scrollbar-width: none; scroll-padding: 0 40px; }
+  .track::-webkit-scrollbar { display: none; }
+  .card { flex: 0 0 300px; scroll-snap-align: start; position: relative; }
+  .card img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius-md); background: var(--gray-light); }
+  .card .ph { display: flex; align-items: center; justify-content: center; width: 100%; aspect-ratio: 4 / 5; border-radius: var(--radius-md); background: var(--gray-light); border: 0.5px dashed var(--line); font-size: 12px; color: var(--text-muted); }
+  .card-num { position: absolute; top: 8px; right: 8px; font-size: 10px; font-weight: 700; color: #fff; background: rgba(0,0,0,.45); padding: 2px 7px; border-radius: 10px; }
+  .nav-btn { position: absolute; top: calc(50% - 18px); width: 36px; height: 36px; border-radius: 50%; border: 0.5px solid var(--line); background: rgba(255,255,255,.95); color: var(--text); font-size: 18px; line-height: 1; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,.12); display: flex; align-items: center; justify-content: center; }
+  .nav-btn:disabled { opacity: 0; pointer-events: none; }
+  .nav-btn.prev { left: 12px; }
+  .nav-btn.next { right: 12px; }
+  .dots { display: flex; justify-content: center; gap: 5px; margin-top: 10px; }
+  .dots span { width: 6px; height: 6px; border-radius: 50%; background: var(--line); }
+  .dots span.on { background: var(--purple); }
+
+  .caption-box { border: 0.5px solid var(--line); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 12px; }
+  .caption-bar { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--gray-light); border-bottom: 0.5px solid var(--line); }
+  .caption-bar-title { font-size: 12px; font-weight: 700; color: var(--text-sec); }
+  .copy-btn { font-family: var(--font); font-size: 12px; font-weight: 500; color: var(--purple-dark); background: var(--white); border: 0.5px solid var(--purple); border-radius: 20px; padding: 4px 12px; cursor: pointer; }
+  .copy-btn.done { background: var(--purple); color: #fff; }
+  .caption { padding: 16px 18px; font-size: 14px; line-height: 1.8; white-space: pre-line; color: var(--text); }
+
+  .note { border-radius: var(--radius-md); padding: 12px 16px; background: var(--amber-light); border: 0.5px solid var(--amber); font-size: 13px; color: #854F0B; line-height: 1.7; margin-bottom: 8px; word-break: break-all; }
+  .note strong { color: #633806; }
+  .note a { color: #633806; }
+
+  .drive-line { font-size: 12px; color: var(--text-muted); margin-top: 32px; line-height: 1.7; }
+
+  .summary-label { scroll-margin-top: 72px; }
+  .toc .new { font-size: 10px; font-weight: 700; color: var(--purple); margin-left: 4px; }
+
+  @media (max-width: 640px) {
+    /* 모바일: 달력 형태 유지. 칸이 좁아 문구는 글자 단위로 줄바꿈 */
+    .cal { margin: 0 -12px; }
+    .cal-head { font-size: 10px; padding: 5px 0; }
+    .cal-head .yo { display: none; }
+    .cal-day { min-height: 64px; padding: 5px 3px 6px; }
+    .cal-num { flex-direction: column; align-items: flex-start; gap: 3px; font-size: 12px; margin-bottom: 4px; }
+    .cal-num .tag { font-size: 9px; padding: 1px 4px; letter-spacing: -.02em; }
+    .tag .full { display: none; }
+    .tag .short { display: inline; }
+    .cal-text { font-size: 10px; line-height: 1.35; letter-spacing: -.03em; word-break: break-all; }
+    .cal-legend { font-size: 10px; gap: 8px; }
+  }
+  @media (max-width: 480px) {
+    body { font-size: 14px; } .page { padding: 28px 20px; }
+    .header-title { font-size: 20px; } .sec-title { font-size: 17px; }
+    .summary { gap: 6px; }
+    .summary a { padding: 10px 9px; }
+    .summary .tag { font-size: 10px; padding: 1px 6px; }
+    .summary-date { font-size: 11px; margin: 6px 0 2px; }
+    .summary-title { font-size: 12px; line-height: 1.4; word-break: keep-all; }
+    .toc { margin: 24px -20px 20px; padding: 10px 20px; }
+    .carousel { margin: 0 -20px 20px; }
+    .track { padding: 0 20px; scroll-padding: 0 20px; }
+    .card { flex-basis: 82%; }
+    .nav-btn { display: none; }
+    .caption { font-size: 13px; padding: 14px 16px; }
+    hr.divider { margin: 28px 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="report-header">
+    <div class="header-accent"></div>
+    <div>
+      <div class="header-period" id="period"></div>
+      <div class="header-title" id="title"></div>
+    </div>
+  </div>
+
+  <nav class="toc" id="toc"></nav>
+
+  <div class="sec-label" id="calendar">01 · 업로드 캘린더</div>
+  <div class="cal-top">
+    <div class="sec-title" id="cal-title"></div>
+    <div class="month-nav">
+      <button type="button" id="prev-month" aria-label="이전 달">‹</button>
+      <button type="button" id="next-month" aria-label="다음 달">›</button>
+    </div>
+  </div>
+  <div class="cal" id="cal"></div>
+  <div class="cal-legend"><span><span class="swatch"></span><span id="legend"></span></span></div>
+
+  <div class="summary-label" id="summary-label"></div>
+  <div class="summary" id="summary"></div>
+
+  <div id="posts"></div>
+
+  <div class="drive-line" id="drive"></div>
+</div>
+
+<script>
+  /* ================================================================
+     매주 할 일
+     1. 아래 WEEKS 맨 끝에 새 주차를 추가한다 (이미지는 weekly/<id>/img/)
+     2. EVENTS에 그 주 업로드 일정을 추가하고, 지난 일정이 바뀌었으면 고친다
+     ================================================================ */
+
+  // 캘린더: [년, 월, 일, 유형(info·brand·conv·video), 문구]
+  var EVENTS = [
+    [2026, 9, 28, 'brand', '반지소개\n이클립스'],
+    [2026, 9, 30, 'info', '웨딩밴드 고르기까지 평균 10개의 반지를 껴봅니다'],
+    [2026, 10, 2, 'brand', '반지소개\n연리지'],
+    [2026, 10, 5, 'brand', '반지소개\n순수'],
+    [2026, 10, 7, 'info', '이름보다 더 깊은 마음의 말을 새겨보세요'],
+    [2026, 10, 9, 'brand', '반지소개\n포레스트2'],
+    [2026, 10, 12, 'brand', '반지소개\n리프'],
+    [2026, 10, 13, 'video', 'EP6. 혜인&준화 부부'],
+    [2026, 10, 14, 'info', '아끼는 반지, 이렇게 다루고 있진 않나요?'],
+    [2026, 10, 15, 'conv', '9월 베스트리뷰'],
+    [2026, 10, 16, 'brand', '반지소개\n클라리스'],
+    [2026, 10, 18, 'video', 'EP6. 혜인&준화 부부'],
+    [2026, 10, 19, 'info', '반지 맞추고 나서야 알게 되는 것들 (DM)'],
+    [2026, 10, 21, 'brand', '반지소개\n윈드벨'],
+    [2026, 10, 22, 'info', '웨딩밴드 상담에 꼭 필요한 22가지 체크리스트'],
+    [2026, 10, 23, 'info', '어제는 딱 맞던 반지가 오늘은 헐렁하다면?'],
+    [2026, 10, 26, 'info', '웨딩밴드 고르다 의견이 갈렸다면?'],
+    [2026, 10, 28, 'conv', 'Monthly BEST 3'],
+    [2026, 10, 29, 'video', '반지영상\n고운슬'],
+    [2026, 10, 30, 'info', '예쁜 건 알겠는데, 뭐라고 설명해야 할까요?'],
+    [2026, 11, 2, 'info', '짧은 손가락엔 얇은 반지가 정답일까?'],
+    [2026, 11, 4, 'brand', '반지소개\nONDA'],
+    [2026, 11, 6, 'info', '결혼 후 남편 손에서 반지가 자꾸 사라지는 이유'],
+    [2026, 11, 9, 'brand', '반지소개\n브릴란테'],
+    [2026, 11, 10, 'video', 'EP7. 윤하&시우 부부'],
+    [2026, 11, 11, 'info', '똑같은 14K인데, 왜 색은 다를까요?'],
+    [2026, 11, 12, 'video', 'EP7. 윤하&시우 부부'],
+    [2026, 11, 13, 'brand', '반지소개\n인피니토'],
+    [2026, 11, 15, 'video', '반지영상\n벨라'],
+    [2026, 11, 16, 'info', '금은 변하지 않는다는데, 왜 까맣게 묻어날까요?'],
+    [2026, 11, 18, 'brand', '반지소개\n루미에르ll'],
+    [2026, 11, 20, 'info', '반지가 돋보이는 웨딩 스냅 포즈 7가지'],
+    [2026, 11, 23, 'brand', '반지소개\n고운결'],
+    [2026, 11, 25, 'conv', 'Monthly BEST 3'],
+    [2026, 11, 27, 'brand', '반지소개\n아모르']
+  ];
+
+  // 주차: id = 이미지 폴더명 (weekly/<id>/img/), start = 그 주 일요일
+  // posts: [날짜(M/D), 유형, 제목, 카드 수, 캡션, 참고 메모(HTML, 없으면 생략)]
+  // v = 이미지를 교체했을 때 바꾸는 값 (브라우저 캐시 방지)
+  var WEEKS = [
+    { id: '2026-10-5', label: '10월 5주차', start: [2026, 10, 25], posts: [
+      ['10/26', 'info', '웨딩밴드 고르다 의견이 갈렸다면?', 6, `웨딩밴드를 고르다 보면
+"나는 좋은데, 너는 별로야?" 하는 순간이 와요.
+
+취향이 다른 건 이상한 일이 아니에요.
+무엇이 마음에 걸리는지만 알아도
+두 사람 모두 만족하는 답이 보이기 시작하죠.
+
+의견이 갈리는 네 가지 순간, 스와이프해서 확인해보세요.
+상담 전에 저장해두고 함께 보셔도 좋고요.
+
+📍 종로3가 1번출구 20m · 방문 상담 환영
+🔗 프로필 링크에서 제이버튼 확인하기
+
+#제이버튼 #웨딩밴드고르기 #웨딩밴드상담 #웨딩밴드 #결혼반지`],
+      ['10/28', 'conv', 'Monthly BEST 3', 4, `[10월, 가장 많이 사랑받은 디자인]
+
+오로라의 빛, 오아시스의 직선, 아침 햇살의 결.
+이달 가장 많은 분들의 선택을 받은 세 가지 웨딩밴드예요.
+
+스와이프해서 BEST 3를 확인해보세요.
+
+📍 종로3가 1번출구 20m · 방문 상담 환영
+🔗 프로필 링크에서 제이버튼 확인하기
+
+#제이버튼 #웨딩밴드추천 #종로예물 #예물반지 #결혼반지`],
+      ['10/30', 'info', '예쁜 건 알겠는데, 뭐라고 설명해야 할까요?', 6, `마음에 드는 반지를 봤는데
+막상 상담에서 뭐라고 설명할지 막막했던 적 있으신가요?
+
+파베, 프롱, 베젤, 이터니티, 컴포트 핏.
+이름 몇 개만 알아도 원하는 반지를 훨씬 정확하게 말할 수 있어요.
+
+상담 때 그대로 꺼내 쓸 수 있는 한 문장까지 담았으니
+스와이프해서 확인해보세요.
+
+📍 종로3가 1번출구 20m · 방문 상담 환영
+🔗 프로필 링크에서 제이버튼 확인하기
+
+#제이버튼 #다이아몬드세팅 #반지용어 #웨딩밴드 #결혼반지`]
+    ] },
+    { id: '2026-11-1', label: '11월 1주차', start: [2026, 11, 1], posts: [
+      ['11/2', 'info', '짧은 손가락엔 얇은 반지가 정답일까?', 6, `짧은 손가락엔 얇은 반지.
+한 번쯤 들어본 공식이죠.
+
+그런데 같은 손에 폭만 바꿔 껴보면
+생각과 다른 반지가 더 잘 어울리기도 해요.
+
+반지를 고를 때 폭과 함께 봐야 할 것들,
+스와이프해서 확인해보세요.
+
+📍 종로3가 1번출구 20m · 방문 상담 환영
+🔗 프로필 링크에서 제이버튼 확인하기
+
+#제이버튼 #반지추천 #반지고르는법 #웨딩밴드 #결혼반지`],
+      ['11/4', 'brand', '반지소개 : ONDA', 6, `온다 [ONDA]
+
+스페인어로 '파도'를 뜻하는 이름이에요.
+잔잔하게 일렁이는 물결의 곡선을 반지에 담았습니다.
+
+파도처럼 흐르는 라인이 손가락을 따라 이어지며
+손을 자연스럽고 길어 보이게 해 줘요.
+
+곡선을 따라 빛이 닿는 각도가 달라져
+과하지 않게, 은은하고 우아하게 반짝이죠.
+
+물결처럼 잔잔하게, 오래 곁에 머무는 반지.
+
+📍 종로3가 1번출구 20m · 방문 상담 환영
+🔗 프로필 링크에서 제이버튼 확인하기
+
+#제이버튼 #웨딩밴드 #결혼반지 #맞춤웨딩밴드 #곡선웨딩밴드`],
+      ['11/6', 'info', '결혼 후 남편 손에서 반지가 자꾸 사라지는 이유', 6, `결혼하고 나면 한 번쯤 하게 되는 말.
+
+"여보, 결혼반지는 어디 갔어?"
+
+분명 결혼식 날에는 잘 끼고 있었는데,
+어느 순간부터 남편 손에서 반지가 보이지 않는다면?
+
+단순히 귀찮아서일 수도 있지만,
+생각보다 현실적인 이유가 있을 수 있어요.
+
+우리 집에도 해당하는 이야기가 있는지
+스와이프해서 확인해보세요.
+
+📍 종로3가 1번출구 20m · 방문 상담 환영
+🔗 프로필 링크에서 제이버튼 확인하기
+
+#제이버튼 #남자결혼반지 #신랑반지 #웨딩밴드 #결혼반지`]
+    ] },
+    { id: '2026-11-2', label: '11월 2주차', start: [2026, 11, 8], posts: [
+      ['11/9', 'brand', '반지소개 : BRILLANTE', 4, `브릴란테 [BRILLANTE]
+
+이탈리아어로 '빛나는'을 뜻하는 이름이에요.
+유행을 타지 않는 단정한 라인에
+이름처럼 은은한 광채를 담았습니다.
+
+밴드의 곡선과 미세한 각도가
+손이 움직일 때마다 빛을 여러 방향으로 돌려보내요.
+
+깔끔한 밴드 중앙에 매립된 스톤은
+절제된 분위기 속에서도 분명한 반짝임을 더하죠.
+
+매일 끼어도 질리지 않는, 조용히 빛나는 반지.
+
+📍 종로3가 1번출구 20m · 방문 상담 환영
+🔗 프로필 링크에서 제이버튼 확인하기
+
+#제이버튼 #웨딩밴드 #결혼반지 #맞춤웨딩밴드 #데일리웨딩밴드`],
+      ['11/11', 'info', '똑같은 14K인데, 왜 색은 다를까요?', 5, `똑같은 14K인데, 왜 색은 다를까요?
+
+핑크골드의 핑크가 사실 금의 색이 아니라는 것,
+알고 계셨나요?
+같은 14K 안에 숨어 있는 컬러의 비밀,
+스와이프해서 확인해보세요.
+
+📍 종로3가 1번출구 20m · 방문 상담 환영
+🔗 프로필 링크에서 제이버튼 확인하기
+
+#제이버튼 #핑크골드 #골드반지 #웨딩밴드 #결혼반지`],
+      ['11/13', 'brand', '반지소개 : INFINITO', 4, `인피니토 [INFINITO]
+
+이탈리아어로 '무한'을 뜻하는 이름이에요.
+밴드 전체를 끊임없이 두른 밀그레인 패턴은
+시작도 끝도 없는 영원한 시간을 의미합니다.
+
+중앙 라인을 따라 촘촘하고 섬세하게 새겨진 밀그레인이
+클래식하고 고급스러운 앤틱 감성을 더해요.
+
+남자 밴드는 금속 본연의 결을 살려 모던하고 단정하게,
+여자 밴드는 작은 스톤을 라인 따라 밀도 있게 파베 세팅해
+반짝임을 한껏 끌어올렸죠.
+
+둘이 나란히 이어 가는, 끝없는 시간의 반지.
+
+📍 종로3가 1번출구 20m · 방문 상담 환영
+🔗 프로필 링크에서 제이버튼 확인하기
+
+#제이버튼 #웨딩밴드 #결혼반지 #맞춤웨딩밴드 #밀그레인웨딩밴드`]
+    ] },
+    { id: '2026-11-3', label: '11월 3주차', start: [2026, 11, 15], v: '1112b', posts: [
+      ['11/16', 'info', '금은 변하지 않는다는데, 왜 까맣게 묻어날까요?', 6, `금은 변하지 않는다는데,
+반지 뺀 자리엔 왜 검은 자국이 남을까요?
+
+범인은 반지가 아니라
+매일 아침 손에 닿는 무언가일지도 몰라요.
+스와이프해서 확인해보세요.
+
+📍 종로3가 1번출구 20m · 방문 상담 환영
+🔗 프로필 링크에서 제이버튼 확인하기
+
+#제이버튼 #반지관리 #금반지 #웨딩밴드 #결혼반지`],
+      ['11/18', 'brand', '반지소개 : LUMIERE ll', 5, `루미에르ll [LUMIERE ll]
+
+프랑스어로 '빛'을 뜻하는 이름이에요.
+화려하게 튀기보다, 깊이 있는 텍스처에서
+천천히 번져 나오는 빛을 모티브로 삼았습니다.
+
+여자 밴드는 매끄럽고 슬림한 라인 중앙에 작은 스톤들을 세팅해
+과하지 않으면서도 사랑스럽고 화사한 포인트를 더했고,
+
+남자 밴드는 군더더기 없는 플랫한 디자인으로
+모던하고 도시적인 감각을 살렸죠.
+
+모양은 달라도, 같은 빛을 나눠 끼는 두 사람의 반지.
+
+📍 종로3가 1번출구 20m · 방문 상담 환영
+🔗 프로필 링크에서 제이버튼 확인하기
+
+#제이버튼 #웨딩밴드 #결혼반지 #맞춤웨딩밴드 #슬림웨딩밴드`],
+      ['11/20', 'info', '반지가 돋보이는 웨딩 스냅 포즈 7가지', 8, `예비 신랑신부를 위한 촬영 가이드.
+웨딩 스냅 날 "반지컷 찍을게요" 하면
+막상 어떤 포즈를 해야 할지 막막하죠.
+
+반지가 자연스럽게 돋보이는 포즈들을 모았어요.
+마음에 드는 컷이 있다면
+저장해두고 레퍼런스로 활용해 보세요.
+
+📍 종로3가 1번출구 20m · 방문 상담 환영
+🔗 프로필 링크에서 제이버튼 확인하기
+
+#제이버튼 #웨딩촬영 #웨딩스냅 #웨딩밴드 #결혼반지`]
+    ] },
+    { id: '2026-11-4', label: '11월 4주차', start: [2026, 11, 22], posts: [
+      ['11/23', 'brand', '반지소개 : GOUNGYEOL', 6, `고운결 [GOUNGYEOL]
+
+아름답고 정갈하다는 뜻의 '곱다'에
+잔물결, 그리고 오롯이 쌓인 시간을 뜻하는 '결'을 더했어요.
+
+단조로운 유광도, 무광도 아닌 표면.
+각도와 조명이 바뀔 때마다
+결을 따라 은은하고 깊은 광채가 흘러요.
+
+매일 끼기에 부담 없는 데일리 웨딩밴드.
+표면의 텍스처 덕분에 생활 스크래치도 자연스럽게 어우러져
+관리가 한결 편하죠.
+
+기계로 찍어낸 패턴이 아닌,
+시간이 지날수록 차곡차곡 쌓여 가는
+두 사람만의 고운 결.
+
+📍 종로3가 1번출구 20m · 방문 상담 환영
+🔗 프로필 링크에서 제이버튼 확인하기
+
+#제이버튼 #웨딩밴드 #결혼반지 #맞춤웨딩밴드 #텍스처웨딩밴드`],
+      ['11/25', 'conv', 'Monthly BEST 3', 4, `[11월, 예비부부가 가장 많이 고른 반지]
+
+파도를 닮은 곡선, 바다를 옮긴 질감, 깃털을 새긴 결.
+이달 가장 많은 선택을 받은 세 반지를 모았어요.
+
+1위부터 차례로, 스와이프해서 만나보세요.
+
+📍 종로3가 1번출구 20m · 방문 상담 환영
+🔗 프로필 링크에서 제이버튼 확인하기
+
+#제이버튼 #웨딩밴드추천 #종로예물 #예물반지 #결혼반지`],
+      ['11/27', 'brand', '반지소개 : AMOR', 6, `아모르 [AMOR]
+
+라틴어로 '사랑'.
+두 사람이 만나 서로의 운명이 되고
+하나의 길을 함께 걷는다는 의미를 담았어요.
+
+밴드 중앙을 가로지르는 사선 라인은
+과하지 않게 세련된 입체감을 만들고,
+깔끔하게 세팅된 바게트 컷 다이아몬드가
+빛이 닿을 때마다 은은하고 시크하게 반짝이죠.
+
+한 줄의 사선처럼, 둘이 나란히 그어 가는 하나의 길.
+
+📍 종로3가 1번출구 20m · 방문 상담 환영
+🔗 프로필 링크에서 제이버튼 확인하기
+
+#제이버튼 #웨딩밴드 #결혼반지 #맞춤웨딩밴드 #다이아웨딩밴드`]
+    ] }
+  ];
+
+  (function () {
+    var LABEL = { info: '정보성', brand: '브랜딩형', conv: '전환형', video: '영상' };
+    var SHORT = { info: '정보', brand: '브랜딩', conv: '전환', video: '영상' };
+    var DAYS = ['일', '월', '화', '수', '목', '금', '토'];
+    var $ = function (id) { return document.getElementById(id); };
+
+    function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+    function br(s) { return esc(s).replace(/\n/g, '<br>'); }
+    function tag(type) { return '<span class="tag ' + type + '"><span class="full">' + LABEL[type] + '</span><span class="short">' + SHORT[type] + '</span></span>'; }
+    function day(y, m, d) { return new Date(y, m - 1, d); }
+    function md(d) { return (d.getMonth() + 1) + '/' + d.getDate(); }
+    function range(w) { var s = day.apply(null, w.start); return [s, new Date(s.getFullYear(), s.getMonth(), s.getDate() + 6)]; }
+    function monthKey(d) { return d.getFullYear() * 12 + d.getMonth(); }
+
+    var cur = null, viewMonth = null;
+    // 주차가 속한 달 = 그 주 수요일이 있는 달
+    function weekMonth(w) { var s = range(w)[0]; return monthKey(new Date(s.getFullYear(), s.getMonth(), s.getDate() + 3)); }
+    var MIN_M = weekMonth(WEEKS[0]);
+    var MAX_M = Math.max.apply(null, EVENTS.map(function (e) { return e[0] * 12 + e[1] - 1; }).concat(WEEKS.map(weekMonth)));
+
+    /* 캘린더 */
+    function renderCal() {
+      var y = Math.floor(viewMonth / 12), m = viewMonth % 12;
+      var first = new Date(y, m, 1), last = new Date(y, m + 1, 0);
+      var start = new Date(y, m, 1 - first.getDay());
+      var weeks = Math.ceil((first.getDay() + last.getDate()) / 7);
+      var wr = range(cur), html = '';
+      DAYS.forEach(function (d, i) { html += '<div class="cal-head' + (i === 0 ? ' sun' : i === 6 ? ' sat' : '') + '">' + d + '<span class="yo">요일</span></div>'; });
+      for (var i = 0; i < weeks * 7; i++) {
+        var d = new Date(start.getFullYear(), start.getMonth(), start.getDate() + i), dow = d.getDay();
+        var e = EVENTS.filter(function (x) { return x[0] === d.getFullYear() && x[1] === d.getMonth() + 1 && x[2] === d.getDate(); })[0];
+        var cls = 'cal-day' + (d.getMonth() !== m ? ' other' : '') + (d >= wr[0] && d <= wr[1] ? ' this-week' : '');
+        html += '<div class="' + cls + '"><div class="cal-num' + (dow === 0 ? ' sun' : dow === 6 ? ' sat' : '') + '"><span>' + d.getDate() + '</span>' + (e ? tag(e[3]) : '') + '</div>' +
+          (e ? '<div class="cal-text">' + br(e[4]) + '</div>' : '') + '</div>';
+      }
+      $('cal').innerHTML = html;
+      $('cal-title').textContent = (m + 1) + '월 업로드 스케줄';
+      $('prev-month').disabled = viewMonth <= MIN_M;
+      $('next-month').disabled = viewMonth >= MAX_M;
+    }
+    $('prev-month').addEventListener('click', function () { if (viewMonth > MIN_M) { viewMonth--; renderCal(); } });
+    $('next-month').addEventListener('click', function () { if (viewMonth < MAX_M) { viewMonth++; renderCal(); } });
+
+    /* 캐러셀 */
+    function setupCarousel(box, w, post, n) {
+      var cards = '', dots = '', v = w.v ? '?v=' + w.v : '';
+      for (var k = 1; k <= n; k++) {
+        var id = post + '_0' + k;
+        cards += '<div class="card"><img src="' + w.id + '/img/' + id + '.jpg' + v + '" alt="' + post + '번 게시물 ' + k + '번 카드" loading="lazy" width="1080" height="1350" onerror="this.outerHTML=\'<div class=&quot;ph&quot;>이미지 준비 중</div>\'"><span class="card-num">' + post + '-0' + k + '</span></div>';
+        dots += '<span' + (k === 1 ? ' class="on"' : '') + '></span>';
+      }
+      box.innerHTML = '<div class="track">' + cards + '</div><button class="nav-btn prev" type="button" aria-label="이전 카드">‹</button><button class="nav-btn next" type="button" aria-label="다음 카드">›</button><div class="dots">' + dots + '</div>';
+      var track = box.querySelector('.track'), prev = box.querySelector('.prev'), next = box.querySelector('.next'), dotEls = box.querySelectorAll('.dots span');
+      function step() { var c = track.querySelector('.card'); return c.offsetWidth + 10; }
+      function sync() {
+        var idx = Math.round(track.scrollLeft / step());
+        dotEls.forEach(function (s, j) { s.classList.toggle('on', j === Math.min(idx, n - 1)); });
+        prev.disabled = track.scrollLeft < 4;
+        next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+      }
+      prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+      next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+      track.addEventListener('scroll', sync, { passive: true });
+      window.addEventListener('resize', sync);
+      sync();
+    }
+
+    /* 캡션 복사 */
+    function setupCopy(btn) {
+      var label = btn.textContent;
+      btn.addEventListener('click', function () {
+        var cap = btn.closest('.caption-box').querySelector('.caption'), text = cap.textContent;
+        function done() { btn.textContent = '복사됨'; btn.classList.add('done'); setTimeout(function () { btn.textContent = label; btn.classList.remove('done'); }, 1500); }
+        function fallback() {
+          var ta = document.createElement('textarea'), ok = false; ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+          document.body.appendChild(ta); ta.select();
+          try { ok = document.execCommand('copy'); } catch (err) {}
+          document.body.removeChild(ta);
+          if (ok) return done();
+          // 복사가 막힌 환경: 캡션을 선택해 두고 직접 복사하도록 안내
+          var r = document.createRange(), sel = window.getSelection();
+          r.selectNodeContents(cap); sel.removeAllRanges(); sel.addRange(r);
+          btn.textContent = '선택됨 · 직접 복사해주세요';
+          setTimeout(function () { btn.textContent = label; }, 2500);
+        }
+        if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(text).then(done, fallback); return; }
+        fallback();
+      });
+    }
+
+    /* 주차 표시 */
+    function show(w) {
+      cur = w;
+      var r = range(w), latest = w === WEEKS[WEEKS.length - 1];
+      viewMonth = weekMonth(w);
+      $('period').textContent = (r[0].getMonth() + 1) + '월 ' + r[0].getDate() + '일 — ' + (r[1].getMonth() + 1) + '월 ' + r[1].getDate() + '일 · ' + (latest ? '차주 업로드 안내' : '지난 주차');
+      $('title').textContent = '제이버튼 인스타그램 ' + w.label;
+      document.title = '제이버튼 ' + w.label + ' 업로드 안내';
+      $('legend').textContent = w.label + ' (' + md(r[0]) + ' — ' + md(r[1]) + ')';
+      $('summary-label').textContent = w.label + ' 업로드';
+      renderCal();
+
+      var sum = '', posts = '';
+      w.posts.forEach(function (p, i) {
+        var n = i + 1, num = ('0' + (n + 1)).slice(-2), d = p[0].split('/');
+        var dt = day(r[0].getFullYear() + (+d[0] < r[0].getMonth() + 1 ? 1 : 0), +d[0], +d[1]), dow = DAYS[dt.getDay()];
+        sum += '<a href="#p' + n + '">' + tag(p[1]) + '<div class="summary-date">' + p[0] + ' (' + dow + ')</div><div class="summary-title">' + esc(p[2]) + '</div></a>';
+        posts += '<hr class="divider">' +
+          '<div class="sec-label" id="p' + n + '">' + num + ' · ' + d[0] + '월 ' + d[1] + '일 (' + dow + ')</div>' +
+          '<div class="post-head">' + tag(p[1]) + '<div class="sec-title">' + esc(p[2]) + '</div></div>' +
+          '<div class="carousel" data-post="0' + n + '" data-count="' + p[3] + '"></div>' +
+          '<div class="caption-box"><div class="caption-bar"><span class="caption-bar-title">캡션</span><button class="copy-btn" type="button">캡션 복사</button></div>' +
+          '<div class="caption">' + esc(p[4]) + '</div></div>' +
+          (p[5] ? '<div class="note">' + p[5] + '</div>' : '');
+      });
+      $('summary').innerHTML = sum;
+      $('posts').innerHTML = posts;
+
+      // 상단 칩: 캘린더 + 주차(최신부터)
+      var toc = '<a href="#calendar"><span>01</span>캘린더</a>';
+      WEEKS.slice().reverse().forEach(function (x, i) {
+        toc += '<a href="#' + x.id + '" data-week="' + x.id + '"' + (x === w ? ' class="active"' : '') + '>' + x.label.replace(/\s/g, '') +
+          (i === 0 ? '<span class="new">최신</span>' : '') + '</a>';
+      });
+      $('toc').innerHTML = toc;
+      var on = document.querySelector('#toc a.active'), bar = $('toc');
+      if (on && (on.offsetLeft < bar.scrollLeft || on.offsetLeft + on.offsetWidth > bar.scrollLeft + bar.clientWidth)) bar.scrollLeft = on.offsetLeft - 20;
+      var folder = w.label.replace(/\s/g, '');
+      $('drive').innerHTML = '카드 원본 이미지는 Google Drive <strong>' + folder + '</strong> 폴더에서 확인하실 수 있습니다.';
+
+      document.querySelectorAll('#posts .carousel').forEach(function (box, i) { setupCarousel(box, w, '0' + (i + 1), +box.dataset.count); });
+      document.querySelectorAll('#posts .copy-btn').forEach(setupCopy);
+    }
+
+    // 주차 칩: 그 주차로 바꾸고 업로드 목록 위치로 이동
+    $('toc').addEventListener('click', function (ev) {
+      var a = ev.target.closest('a[data-week]'); if (!a) return;
+      ev.preventDefault(); ev.stopPropagation();
+      if (location.hash !== '#' + a.dataset.week) history.pushState(null, '', '#' + a.dataset.week);
+      route();
+      $('summary-label').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    /* 주소(#2026-11-3)로 주차 선택. 없으면 최신 주차 */
+    function route() {
+      var id = location.hash.slice(1);
+      var w = WEEKS.filter(function (x) { return x.id === id; })[0];
+      if (w) { if (w !== cur) show(w); return; }
+      if (!cur || !id) show(WEEKS[WEEKS.length - 1]);
+    }
+    // 페이지 안 이동(칩·요약 카드)은 주소를 바꾸지 않고 스크롤만 한다 (주소에는 주차만 남김)
+    document.addEventListener('click', function (ev) {
+      var a = ev.target.closest('a[href^="#"]'); if (!a) return;
+      var t = document.getElementById(a.getAttribute('href').slice(1)); if (!t) return;
+      ev.preventDefault();
+      t.scrollIntoView({ behavior: 'smooth' });
+    });
+    window.addEventListener('popstate', route);
+    window.addEventListener('hashchange', route);
+    route();
+  })();
+</script>
+</body>
+</html>
